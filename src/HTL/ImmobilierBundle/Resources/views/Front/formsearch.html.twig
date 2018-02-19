@@ -1,0 +1,95 @@
+{% extends "::layout.html.twig" %}
+
+
+
+
+
+
+
+
+ {% block suggetions %}
+  {% for bien in biens %}
+
+<article class="col-lg-4">
+      <div class="card-header entete">  
+          <h1>{{bien.libelletype}}</h1>
+</div><div class="card-body">
+                      <img src="{{ asset('image/') }}{{bien.image}}" alt="Los Angeles" class="thumbnail" width="300px" height="auto">
+               <div class="imgpetit"> <img src="{{ asset('image/') }}{{bien.image}}" alt="Los Angeles" class="thumbnail" width="100px" height="auto">
+                <img src="{{ asset('image/') }}{{bien.image}}" alt="Los Angeles" class="thumbnail" width="100px" height="auto">
+                <img src="{{ asset('image/') }}{{bien.image}}" alt="Los Angeles" class="thumbnail" width="100px" height="auto">
+                </div>
+          
+          </div>
+     
+    </article>
+
+
+
+    <div class="col-lg-2 desc"><h4 class="card-title">Lieu:{{bien.libellelocalite}}<hr>Prix:{{bien.prixlocation}}</h4>
+                     <p class="card-text">
+                      {{bien.description}}
+                                    </p></div>
+
+{% else %}
+  {% endfor %}
+ {% endblock %}
+
+{% block footer %}
+
+
+<!--
+{{form(form)}}
+
+
+
+
+
+<div class="container bg-warning divtable">
+   
+<h1>LISTE DES UTILISATEURS</h1>
+<table class="table table-responsive table-condensed" border="1px">
+<thead>
+    <tr>
+        <th>nombien</th>
+         <th>localite</th>
+         <th>typebien</th>
+        <th>description</th>
+        <th>prixlocation</th>
+        <th>image</th>
+    
+    </tr>
+</thead>
+  {% for bien in biens %}
+  <tbody>
+    <tr>
+        <td>{{bien.nombien}}</td>
+        <td>{{bien.libellelocalite}}</td>
+        <td>{{bien.libelletype}}</td>
+        <td>{{bien.description}}</td>
+        <td>{{bien.prixlocation}}</td>
+     <td><img class="card-img-top" src="{{ asset('image/') }}{{bien.image}}" alt="Card image cap"></td>
+
+    </tr>
+    </tbody>
+
+{% else %}
+<h1>ce bien n'existe pas</h1>
+  {% endfor %}
+</table></div>
+
+-->
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

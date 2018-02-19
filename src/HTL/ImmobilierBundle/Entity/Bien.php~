@@ -1,0 +1,229 @@
+<?php
+namespace HTL\ImmobilierBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * Bien
+ *
+ * @ORM\Table(name="bien")
+ * @ORM\Entity(repositoryClass="HTL\ImmobilierBundle\Repository\BienRepository")
+ */
+class Bien
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombien", type="string", length=30)
+     */
+    private $nombien;
+    
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="etat", type="boolean")
+     */
+    private $etat;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="prixlocation", type="integer")
+     */
+    private $prixlocation;
+    
+    /**
+   * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Bien")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    private $parentbien;
+     /**
+   * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Localite")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    private $localite;
+    /**
+   * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Typebien")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    private $typebien;
+  
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * Set nombien
+     *
+     * @param string $nombien
+     *
+     * @return Bien
+     */
+    public function setNombien($nombien)
+    {
+        $this->nombien = $nombien;
+        return $this;
+    }
+    /**
+     * Get nombien
+     *
+     * @return string
+     */
+    public function getNombien()
+    {
+        return $this->nombien;
+    }
+    /**
+     * Set etat
+     *
+     * @param boolean $etat
+     *
+     * @return Bien
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+        return $this;
+    }
+    /**
+     * Get etat
+     *
+     * @return bool
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Bien
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    /**
+     * Set prixlocation
+     *
+     * @param integer $prixlocation
+     *
+     * @return Bien
+     */
+    public function setPrixlocation($prixlocation)
+    {
+        $this->prixlocation = $prixlocation;
+        return $this;
+    }
+    /**
+     * Get prixlocation
+     *
+     * @return int
+     */
+    public function getPrixlocation()
+    {
+        return $this->prixlocation;
+    }
+    
+   
+
+    /**
+     * Set parentbien
+     *
+     * @param \HTL\ImmobilierBundle\Entity\Bien $parentbien
+     *
+     * @return Bien
+     */
+    public function setParentbien(\HTL\ImmobilierBundle\Entity\Bien $parentbien)
+    {
+        $this->parentbien = $parentbien;
+
+        return $this;
+    }
+
+    /**
+     * Get parentbien
+     *
+     * @return \HTL\ImmobilierBundle\Entity\Bien
+     */
+    public function getParentbien()
+    {
+        return $this->parentbien;
+    }
+
+    /**
+     * Set localite
+     *
+     * @param \HTL\ImmobilierBundle\Entity\Localite $localite
+     *
+     * @return Bien
+     */
+    public function setLocalite(\HTL\ImmobilierBundle\Entity\Localite $localite)
+    {
+        $this->localite = $localite;
+
+        return $this;
+    }
+
+    /**
+     * Get localite
+     *
+     * @return \HTL\ImmobilierBundle\Entity\Localite
+     */
+    public function getLocalite()
+    {
+        return $this->localite;
+    }
+
+    /**
+     * Set typebien
+     *
+     * @param \HTL\ImmobilierBundle\Entity\Typebien $typebien
+     *
+     * @return Bien
+     */
+    public function setTypebien(\HTL\ImmobilierBundle\Entity\Typebien $typebien)
+    {
+        $this->typebien = $typebien;
+
+        return $this;
+    }
+
+    /**
+     * Get typebien
+     *
+     * @return \HTL\ImmobilierBundle\Entity\Typebien
+     */
+    public function getTypebien()
+    {
+        return $this->typebien;
+    }
+}

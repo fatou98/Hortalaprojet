@@ -1,0 +1,30 @@
+htl_immobilier_homepage:
+    path:     /
+    defaults: { _controller: HTLImmobilierBundle:Default:index }
+accueil:
+    path:     /accueil
+    defaults: { _controller: HTLImmobilierBundle:Reservation:accueil }
+search:
+    path:     /front/bien/search
+    defaults: { _controller: HTLImmobilierBundle:Front:searchBien }
+reserver:
+    path:     /front/bien/reserver{id}
+    defaults: { _controller: HTLImmobilierBundle:Front:reserverBien }
+    requirements:
+        id: \d+
+listebien:
+    path:     /front/bien/listebien
+    defaults: { _controller: HTLImmobilierBundle:Front:listeBien }
+searchprix:
+    path:     /front/bien/prix
+    defaults: { _controller: HTLImmobilierBundle:Front:searchPrix}
+searchtype:
+    path:     /front/bien/type
+    defaults: { _controller: HTLImmobilierBundle:Front:searchTypebien }
+searchlocalite:
+    path:     /front/bien/localite
+    defaults: { _controller: HTLImmobilierBundle:Front:searchLocalite }
+searchdescription:
+    path:     /front/bien/description
+    defaults: { _controller: HTLImmobilierBundle:Front:searchDescription }
+    

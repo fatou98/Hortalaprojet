@@ -1,0 +1,43 @@
+
+
+
+
+
+<form class="form-inline" method="post">
+  <label for="usr">Type:</label>
+  <input type="text" class="form-control" name="libelletype">
+
+  <label for="localite">Localite:</label>
+  <input type="text" class="form-control" name="libellelocalite">
+    
+  <label for="budget">Budget:</label>
+  <input type="text" class="form-control" name="prixlocation">
+    <div class="form-inline" id="option">
+  <label for="description">Description:</label>
+  <input type="text" class="form-control" name="description"></div>
+      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+
+</form>
+<div class="container bg-warning divtable" style="display: flex;flex-wrap: wrap;">
+   
+<h1>LISTE DES bien</h1>
+{% for bien in biens %}
+
+                     <div class="col-lg-4 card div1">
+ <div class="card-header entete"><h3>A la une</h3></div>
+                    <img class="card-img-top" src="{{ asset('image/') }}{{bien.image}}" alt="Card image cap">
+                    <div class="card-block">
+                      <h4 class="card-title">{{bien.libelletype}}</h4>
+                     <p class="card-text">{{bien.libellelocalite}}<br>{{bien.prixlocation}}</p>
+                        <a class="btn btn-default reserver" href="{{path('reserver',{id:bien.id})}}" >Reserver</a>
+                        </div>
+</div>
+
+ 
+{% else %}
+<h1>ce bien n'existe pas</h1>
+  {% endfor %}
+</div>
+
+
+
