@@ -1,0 +1,37 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}HTLImmobilierBundle:Front:searchBien{% endblock %}
+
+{% block body %}
+<form method="post">
+        <div class="form-group">
+            <label for="localite">Localité</label>
+            <select class="form-control col-md-4" name="locaselect" id="locaselect">
+            <option value="0">choisir la localité</option>
+            {% for localite in localites %}
+               {% if localite.id == loca %}
+                    <option value="{{localite.id}}" selected="true">{{localite.libellelocalite}}</option>
+               {% else %}
+                    <option value="{{localite.id}}">{{localite.libellelocalite}}</option>
+               {% endif %}
+
+            {% endfor %}
+            </select>
+        
+            <label for="typeselect">Type de Bien</label>
+            <select class="form-control col-md-4" name="typeselect" id="typeselect">
+            <option value="0">choisir le type de bien</option>
+            {% for type in types %}
+                {% if type.id == typeBien %}
+                    <option value="{{type.id}}" selected="true">{{type.libelletype}}</option>
+                {% else %}
+                    <option value="{{type.id}}">{{type.libelletype}}</option>
+               {% endif %}
+            {% endfor %}
+            </select>
+        
+            <input type="number" name="prix" value="{{prix}}">
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </div>
+    </form>
+{% endblock %}
