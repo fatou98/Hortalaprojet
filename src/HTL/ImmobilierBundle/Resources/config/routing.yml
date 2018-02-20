@@ -8,10 +8,9 @@ search:
     path:     /front/bien/search
     defaults: { _controller: HTLImmobilierBundle:Front:searchBien }
 reserver:
-    path:     /front/bien/reserver{id}
+    path:     /front/bien/
     defaults: { _controller: HTLImmobilierBundle:Front:reserverBien }
-    requirements:
-        id: \d+
+
 listebien:
     path:     /front/bien/listebien
     defaults: { _controller: HTLImmobilierBundle:Front:listeBien }

@@ -128,30 +128,18 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         if (0 === strpos($pathinfo, '/front/bien')) {
-            if (0 === strpos($pathinfo, '/front/bien/search')) {
-                // search
-                if ('/front/bien/search' === $pathinfo) {
-                    return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchBienAction',  '_route' => 'search',);
-                }
-
-                // htl_immobilier_front_searchbien
-                if ('/front/bien/search' === $pathinfo) {
-                    return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchBienAction',  '_route' => 'htl_immobilier_front_searchbien',);
-                }
-
+            // search
+            if ('/front/bien/search' === $pathinfo) {
+                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchBienAction',  '_route' => 'search',);
             }
 
-            elseif (0 === strpos($pathinfo, '/front/bien/reserver')) {
-                // reserver
-                if (preg_match('#^/front/bien/reserver(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'reserver')), array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::reserverBienAction',));
+            // reserver
+            if ('/front/bien' === $trimmedPathinfo) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'reserver');
                 }
 
-                // htl_immobilier_front_reserverbien
-                if ('/front/bien/reserver' === $pathinfo) {
-                    return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::reserverBienAction',  '_route' => 'htl_immobilier_front_reserverbien',);
-                }
-
+                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::reserverBienAction',  '_route' => 'reserver',);
             }
 
             // listebien
@@ -177,6 +165,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // searchdescription
             if ('/front/bien/description' === $pathinfo) {
                 return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchDescriptionAction',  '_route' => 'searchdescription',);
+            }
+
+            // htl_immobilier_front_searchbien
+            if ('/front/bien/search' === $pathinfo) {
+                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchBienAction',  '_route' => 'htl_immobilier_front_searchbien',);
+            }
+
+            // htl_immobilier_front_reserverbien
+            if ('/front/bien/reserver' === $pathinfo) {
+                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::reserverBienAction',  '_route' => 'htl_immobilier_front_reserverbien',);
             }
 
         }

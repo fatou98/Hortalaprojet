@@ -54,6 +54,8 @@
  
     <aside class="col-lg-6 aside"><form id="connexion">
         <div class="card-header"> <h2>CONNEXION</h2></div><hr>
+                  <input type="hidden" class="form-control" name="form" placeholder="" value="connexion">
+
   <div class="form-group">
     <label for="formGroupExampleInput">Email</label>
     <input type="email" class="form-control" id="email" placeholder="example@example.com">
@@ -68,35 +70,41 @@
   
 </form>
         
-        <form id="inscription">
+        <form id="inscription" method="post">
                <div class="card-header"> <h2>Inscription</h2><hr>
 
             <div class="row">
-  <div class="form-group col-md-6">
-    <label for="formGroupExampleInput">Prenom</label>
-    <input type="text" class="form-control" name="prenom" placeholder="entrez votre prenom" value="">
+  <div class="form-group col-md-6"> 
+          <input type="hidden" class="form-control" name="form" placeholder="" value="inscription">
+
+    <input type="hidden" class="form-control" name="idBien" placeholder="" value="{{ biens[0].id }}">
+   
+      <label for="formGroupExampleInput2">Numpiece</label>
+    <input type="number" class="form-control" name="numpiece" placeholder="enter your cni" value="">
   </div> <div class="form-group col-md-6">
     <label for="formGroupExampleInput">Nom</label>
-    <input type="text" class="form-control" name="nom" placeholder="entrez votre nom" value="">
+    <input type="text" class="form-control" name="nomComplet" placeholder="entrez votre nom" value="">
   </div>
                 </div>
   <div class="form-group">
-    <label for="formGroupExampleInput2">Email</label>
-    <input type="email" class="form-control" name="email" placeholder="enter your email" value="">
-           <br><div class="form-group">
-    <label for="formGroupExampleInput2">Numpiece</label>
-    <input type="number" class="form-control" name="numpiece" placeholder="enter your cni" value="">
+       <label for="formGroupExampleInput2">TEL</label>
+    <input type="number" class="form-control" name="tel" placeholder="enrter votre numero " value="">
+                   </div><div class="form-group">
+       <label for="formGroupExampleInput2">Adresse</label>
+    <input type="text" class="form-control" name="adresse" placeholder="entrer votre addresse" value="">
+                   </div>
+    <br><div class="form-group">   <label for="formGroupExampleInput2">Email</label>
+    <input type="email" class="form-control" name="email" placeholder="entrer votre email" value="">
+                   </div>
            <br>
        <div class="form-group">
     <label for="formGroupExampleInput2">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="enter your password" value=""></div>
-            <label for="formGroupExampleInput2"> Verifier Password</label>
-    <input type="password" class="form-control" name="vpassword" placeholder="enter your password" value=""></div>
-        
+    <input type="password" class="form-control" name="password" placeholder="entrer votre password" value=""></div>
+       
            <button type="submit" class="btn btn-primary">Submit</button>
         <p>  <a type="submit" class="fa fa-arrow-right" href="#" id="conect">se connecter</a>
       </p>
-      </div></div> 
+            </div>
 
 </form>
     </aside>

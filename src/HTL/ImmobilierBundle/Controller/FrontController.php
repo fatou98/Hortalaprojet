@@ -9,6 +9,7 @@ use HTL\ImmobilierBundle\Entity\Bien;
 use HTL\ImmobilierBundle\Entity\Client;
 use HTL\ImmobilierBundle\Form\ClientType;
 use HTL\ImmobilierBundle\Entity\Typebien;
+use HTL\ImmobilierBundle\Entity\Reservation;
 use HTL\ImmobilierBundle\Entity\Localite;
 use Symfony\Component\HttpFoundation\Response;
 use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
@@ -20,49 +21,74 @@ class FrontController extends Controller
      */
     public function searchBienAction(Request $request)
     {
-        // On crée un objet Utilisateur
+      /*if ($request->isMethod('POST')) {
+            extract($_POST);
+            $client = new Client();
+            $client->setNumpiece($numpiece);
+            $client->setNomComplet($nomComplet);
+            $client->setTel($tel);
+            $client->setAdresse($adresse);
+            $client->setEmail($email);
+            $client->setPassword($password);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($client);
+            $em->flush();
+                    return $this->redirectToRoute('reserver');
 
-    $client = new Client();
-
-    $formclient=$this-> createForm(ClientType::class,$client);
-
-
-      if ($request->isMethod('POST')) {
-      // On fait le lien Requête <-> Formulaire
-      // À partir de maintenant, la variable $user contient les valeurs entrées dans le formulaire par l'utilisateur
-      $formclient->handleRequest($request);
-         if ($formclient->isValid()) {
-        // On enregistre notre objet $user dans la base de données, par exemple
-        $entitymaneger = $this->getDoctrine()->getManager();
-//$user->setPassword('coding');
-        $entitymaneger->persist($client);
-
-        $entitymaneger->flush();
-
-       // return $this->redirectToRoute('list');
-
-    }
-      }
-
+         
+      }*/
     // afin qu'elle puisse afficher le formulaire toute seule
 
         return $this->render('HTLImmobilierBundle:Front:search_bien.html.twig', array(
-             'form' => $formclient->createView()
         ));
     }
     /**
      * @Route("/front/bien/reserver")
      */
-    public function reserverBienAction($id)
-    {
-         $bien = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('HTLImmobilierBundle:Bien')
-                ->FindAllBienlocalitetypeid($id);
-                        return $this->render('HTLImmobilierBundle:Front:formsearch.html.twig', array(
-                                'biens' => $bien
-    ));
-                    
+    public function reserverBienAction(Request $request)
+    {   
+        $em = $this->getDoctrine()->getManager();
+        if ($request->isMethod('POST') && $_POST['form']="inscription") {
+            extract($_POST);
+            $client = new Client();
+            $client->setNumpiece($numpiece);
+            $client->setNomComplet($nomComplet);
+            $client->setTel($tel);
+            $client->setAdresse($adresse);
+            $client->setEmail($email);
+            $client->setPassword($password);
+            $em->persist($client);
+            $em->flush();
+            
+            $bien= $em->getRepository(Bien::class)->find($idBien);
+            
+            $reservation = new Reservation();
+            $reservation->setDatereservation(new \DateTime('now'));
+            $reservation->setEtat(false);
+            $reservation->setBien($bien);
+            $reservation->setClient($client);
+            $em->persist($reservation);
+            $em->flush();
+            
+            $bien = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('HTLImmobilierBundle:Bien')
+            ->FindAllBienlocalitetypeid($idBien);
+            return $this->render('HTLImmobilierBundle:Front:formsearch.html.twig', array(
+                'biens' => $bien
+            ));
+        }
+        
+        if ($request->isMethod('GET')) {
+            extract($_GET);
+            $bien = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('HTLImmobilierBundle:Bien')
+            ->FindAllBienlocalitetypeid($id);
+            return $this->render('HTLImmobilierBundle:Front:formsearch.html.twig', array(
+                'biens' => $bien
+            ));
+        }           
     }
      public function listeBienAction(){
                    

@@ -24,7 +24,7 @@ class Image
      */
     private $image;
      /**
-   * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Bien")
+   * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Bien",inversedBy="images")
    * @ORM\JoinColumn(nullable=false)
    */
   private $bien;

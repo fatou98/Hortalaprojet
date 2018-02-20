@@ -58,6 +58,18 @@ public function FindAllBienprix($prixlocation,$libellelocalite,$libelletype,$des
                                       ))
                  ->execute();
         } 
+public function InsertAllreservation($prenom,$nom,$numpiece,$email,$password,$vpassword)
+    {
+
+              return $this->getEntityManager()->createQuery(    
+
+                'Insert into HTLImmobilierBundle:Reservation values(null,:prenom,:nom,numpiece)'
+                )
+                 ->setParameters(array('prixlocation'=>$prixlocation,'libellelocalite'=>$libellelocalite,'libelletype'=>
+                                      $libelletype,'description'=>'%'.$description.'%'
+                                      ))
+                 ->execute();
+        } 
     public function FindAllBiendescription($description)
     {
 

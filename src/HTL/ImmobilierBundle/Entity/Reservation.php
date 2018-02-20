@@ -24,9 +24,9 @@ class Reservation
      */
     private $datereservation;
     /**
-     * @var int
+     * @var bol
      *
-     * @ORM\Column(name="etat", type="integer")
+     * @ORM\Column(name="etat", type="boolean")
      */
     private $etat;
     /**
@@ -59,10 +59,10 @@ class Reservation
     {
         return $this->datereservation;
     }
-    public function __construct()
+  /*  public function __construct()
 {
     $this->datereservation = new \DateTime('now');
-}
+}*/
     /**
      * Set etat
      *
@@ -95,4 +95,52 @@ class Reservation
    * @ORM\JoinColumn(nullable=false)
    */
   private $client;
+
+    /**
+     * Set bien
+     *
+     * @param \HTL\ImmobilierBundle\Entity\Bien $bien
+     *
+     * @return Reservation
+     */
+    public function setBien(\HTL\ImmobilierBundle\Entity\Bien $bien)
+    {
+        $this->bien = $bien;
+
+        return $this;
+    }
+
+    /**
+     * Get bien
+     *
+     * @return \HTL\ImmobilierBundle\Entity\Bien
+     */
+    public function getBien()
+    {
+        return $this->bien;
+    }
+
+    /**
+     * Set client
+     *
+     * @param \HTL\ImmobilierBundle\Entity\Client $client
+     *
+     * @return Reservation
+     */
+    public function setClient(\HTL\ImmobilierBundle\Entity\Client $client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \HTL\ImmobilierBundle\Entity\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
 }

@@ -59,6 +59,11 @@ class Bien
    * @ORM\JoinColumn(nullable=true)
    */
     private $typebien;
+ /**
+   * @ORM\OneToMany(targetEntity="HTL\ImmobilierBundle\Entity\Image", mappedBy="bien")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $images;
 
     /**
      * Get id
@@ -160,7 +165,6 @@ class Bien
 
         return $this;
     }
-
     /**
      * Get bien
      *
@@ -197,7 +201,7 @@ class Bien
     // ...
 
   }
-/*
+
 
   public function addImage(\HTL\ImmobilierBundle\Entity\Image $image)
 
@@ -227,5 +231,5 @@ class Bien
       public function __toString(){
 
         return $this->images;
-    }*/
+    }
 }
