@@ -13,22 +13,22 @@
   } );*/
 $(document).ready(function(){
     $(".connexion").hide();
-   // $(".div1").fadeOut();
-   // $("#option").hide();
+    $(".div1").fadeOut();
+   $("#option").hide();
     $('#connexionbuton').on("click",function(){
             $(".connexion").show();
     $("#myCarousel").hide();
     $(".recherche").hide();
-    }); 
+    });
     $('#accueil').on("click",function(){
             $(".connexion").hide();
     $("#myCarousel").show();
     $(".recherche").show();
     });
-  //  $(window).on("scroll",function(){
-       // if($(this).scrollTop()>350){$(".div1").fadeIn(300);}
-          
-    //})
+   $(window).on("scroll",function(){
+      if($(this).scrollTop()>300){$(".div1").fadeIn(600);}
+
+    })
         $('#accueil').on("click",function(){
  $(".connexion").hide();
     $("#myCarousel").show();
@@ -40,9 +40,8 @@ $(document).ready(function(){
 });
     $('#plus').on("click",function(){
     $("#option").show();
-                $('.reserver').on("click",function(){
+    });
 
-                });
 
-});
+
 });

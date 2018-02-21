@@ -602,3 +602,16 @@ ff72f5,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/prix,1
 c24ce2,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227122,,200
 904b5c,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/?id=10,1519227132,,200
 cc7657,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/?id=10,1519227137,,200
+8608fb,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227250,,200
+aaba74,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227261,,200
+54bd6c,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/?id=9,1519227264,,200
+58f385,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/?id=9,1519227272,7ead46,200
+7ead46,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/?id=9,1519227272,,500
+5da694,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/?id=9,1519227281,,200
+0fa81e,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227317,,200
+1a5cf2,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227490,,200
+821e7b,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227597,,200
+d0ce81,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227611,,200
+21f1b2,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227613,,200
+de8ea6,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227639,,200
+d59092,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519227777,,200
