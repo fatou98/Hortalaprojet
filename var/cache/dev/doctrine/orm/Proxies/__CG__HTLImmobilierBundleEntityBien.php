@@ -64,10 +64,10 @@ class Bien extends \HTL\ImmobilierBundle\Entity\Bien implements \Doctrine\ORM\Pr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'nombien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'prixlocation', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'parentbien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'libellelocalite', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'typebien'];
+            return ['__isInitialized__', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'nombien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'prixlocation', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'parentbien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'libellelocalite', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'typebien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'images'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'nombien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'prixlocation', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'parentbien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'libellelocalite', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'typebien'];
+        return ['__isInitialized__', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'nombien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'prixlocation', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'parentbien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'libellelocalite', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'typebien', '' . "\0" . 'HTL\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'images'];
     }
 
     /**
@@ -318,6 +318,50 @@ class Bien extends \HTL\ImmobilierBundle\Entity\Bien implements \Doctrine\ORM\Pr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTypebien', []);
 
         return parent::getTypebien();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addImage(\HTL\ImmobilierBundle\Entity\Image $image)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addImage', [$image]);
+
+        return parent::addImage($image);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeImage(\HTL\ImmobilierBundle\Entity\Image $image)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeImage', [$image]);
+
+        return parent::removeImage($image);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getImages()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImages', []);
+
+        return parent::getImages();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
+
+        return parent::__toString();
     }
 
 }

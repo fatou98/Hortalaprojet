@@ -70,7 +70,7 @@ class Reservation
      *
      * @return Reservation
      */
-    
+
     public function setEtat($etat)
     {
         $this->etat = $etat;
@@ -91,7 +91,7 @@ class Reservation
    */
   private $bien;
    /**
-   * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Client")
+   * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Client",inversedBy="reservations")
    * @ORM\JoinColumn(nullable=false)
    */
   private $client;

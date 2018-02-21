@@ -22,7 +22,7 @@
             border-top: 2px solid black;
             border-bottom: 2px solid black;
             margin-bottom: 100px;
-            
+
         }
         .article{
             width: auto;display: flex;
@@ -44,41 +44,42 @@
         .row{
             padding: 0px;
         }
-       
+
     </style>
     <div class="container">
-       
+
 <section class="row">
       {% block suggetions %}
         {% endblock %}
- 
-    <aside class="col-lg-6 aside"><form id="connexion">
+
+    <aside class="col-lg-6 aside"><form id="connexion" method="post">
         <div class="card-header"> <h2>CONNEXION</h2></div><hr>
                   <input type="hidden" class="form-control" name="form" placeholder="" value="connexion">
+    <input type="hidden" class="form-control" name="idBien" placeholder="" value="{{ biens[0].id }}">
 
   <div class="form-group">
     <label for="formGroupExampleInput">Email</label>
-    <input type="email" class="form-control" id="email" placeholder="example@example.com">
+    <input type="email" class="form-control" name="email" placeholder="example@example.com">
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="enter your password"></div>
-           
+    <input type="password" class="form-control" name="password" placeholder="enter your password"></div>
+
            <button type="submit" class="btn btn-primary">Submit</button>
         <p>  Vous etes nouveau? <a type="submit" class="fa fa-arrow-right" href="#" id="inscrire">Inscrivez-vous</a>
       </p>
-  
+
 </form>
-        
+
         <form id="inscription" method="post">
                <div class="card-header"> <h2>Inscription</h2><hr>
 
             <div class="row">
-  <div class="form-group col-md-6"> 
+  <div class="form-group col-md-6">
           <input type="hidden" class="form-control" name="form" placeholder="" value="inscription">
 
     <input type="hidden" class="form-control" name="idBien" placeholder="" value="{{ biens[0].id }}">
-   
+
       <label for="formGroupExampleInput2">Numpiece</label>
     <input type="number" class="form-control" name="numpiece" placeholder="enter your cni" value="">
   </div> <div class="form-group col-md-6">
@@ -100,7 +101,7 @@
        <div class="form-group">
     <label for="formGroupExampleInput2">Password</label>
     <input type="password" class="form-control" name="password" placeholder="entrer votre password" value=""></div>
-       
+
            <button type="submit" class="btn btn-primary">Submit</button>
         <p>  <a type="submit" class="fa fa-arrow-right" href="#" id="conect">se connecter</a>
       </p>
@@ -109,8 +110,8 @@
 </form>
     </aside>
   </section>
-      
-     
+
+
      {% block javascripts %}
 <script>
     $(document).ready(function(){

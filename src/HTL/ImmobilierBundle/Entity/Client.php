@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="client")
  * @ORM\Entity(repositoryClass="HTL\ImmobilierBundle\Repository\ClientRepository")
  */
-class Client 
+class Client
 {
-  
+
 // your own logic
 
     /**
@@ -24,7 +24,7 @@ class Client
     /**
      * @var int
      *
-     * @ORM\Column(name="numpiece", type="integer", unique=true, length=20)
+     * @ORM\Column(name="numpiece", type="integer", unique=true, length=30)
      */
     private $numpiece;
     /**
@@ -57,7 +57,12 @@ class Client
      * @ORM\Column(name="password", type="string", length=50)
      */
     private $password;
- 
+    /**
+   * @ORM\OneToMany(targetEntity="HTL\ImmobilierBundle\Entity\Reservation",mappedBy="client")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $reservations;
+
     /**
      * Get id
      *
@@ -193,6 +198,6 @@ class Client
     {
         return $this->password;
     }
-    
-   
+
+
 }

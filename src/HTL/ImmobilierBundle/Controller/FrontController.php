@@ -35,7 +35,7 @@ class FrontController extends Controller
             $em->flush();
                     return $this->redirectToRoute('reserver');
 
-         
+
       }*/
     // afin qu'elle puisse afficher le formulaire toute seule
 
@@ -46,8 +46,31 @@ class FrontController extends Controller
      * @Route("/front/bien/reserver")
      */
     public function reserverBienAction(Request $request)
-    {   
+    {
         $em = $this->getDoctrine()->getManager();
+        if ($request->isMethod('POST') && $_POST['form']="connexion") {
+            extract($_POST);
+           //$client = new Client();
+                        $client= $em->getRepository(Client::class)->FindClient($email,$password);
+
+            //->getRepository('HTLImmobilierBundle:Client')
+            $bien= $em->getRepository(Bien::class)->find($idBien);
+
+            $reservation = new Reservation();
+            $reservation->setDatereservation(new \DateTime('now'));
+            $reservation->setEtat(false);
+            $reservation->setBien($bien);
+            $reservation->setClient($client);
+            $em->persist($reservation);
+            $em->flush();
+            $bien = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('HTLImmobilierBundle:Bien')
+            ->FindAllBienlocalitetypeid($idBien);
+              return $this->render('HTLImmobilierBundle:Front:formsearch.html.twig', array(
+                'biens' => $bien
+            ));
+                }
         if ($request->isMethod('POST') && $_POST['form']="inscription") {
             extract($_POST);
             $client = new Client();
@@ -59,9 +82,9 @@ class FrontController extends Controller
             $client->setPassword($password);
             $em->persist($client);
             $em->flush();
-            
+
             $bien= $em->getRepository(Bien::class)->find($idBien);
-            
+
             $reservation = new Reservation();
             $reservation->setDatereservation(new \DateTime('now'));
             $reservation->setEtat(false);
@@ -69,7 +92,7 @@ class FrontController extends Controller
             $reservation->setClient($client);
             $em->persist($reservation);
             $em->flush();
-            
+
             $bien = $this->getDoctrine()
             ->getManager()
             ->getRepository('HTLImmobilierBundle:Bien')
@@ -78,7 +101,8 @@ class FrontController extends Controller
                 'biens' => $bien
             ));
         }
-        
+
+
         if ($request->isMethod('GET')) {
             extract($_GET);
             $bien = $this->getDoctrine()
@@ -88,29 +112,29 @@ class FrontController extends Controller
             return $this->render('HTLImmobilierBundle:Front:formsearch.html.twig', array(
                 'biens' => $bien
             ));
-        }           
+        }
     }
      public function listeBienAction(){
-                   
+
                             $em = $this->getDoctrine()->getManager();
          $bien= $em->getRepository(Bien::class)
             ->FindAllBienlocalitetype();
-           
-         
+
+
                           return $this->render('HTLImmobilierBundle:Front:listebien.html.twig', array(
                                   'biens' => $bien,
                         ));
     }
                 public function searchPrixAction(Request $request){
-                        
-               $bien = new Bien(); 
+
+               $bien = new Bien();
                     if($request->isMethod('POST')){
-             
+
                         $prixlocation = $_POST["prixlocation"];
                         $libellelocalite = $_POST["libellelocalite"];
                         $libelletype = $_POST["libelletype"];
                         $description = $_POST["description"];
-                       
+
                          if(empty($prixlocation) and empty($libelletype) and empty($description) and empty($libellelocalite)){
                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
@@ -129,9 +153,9 @@ class FrontController extends Controller
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
     );
-                 
+
                             }
-                        
+
                         else if( empty($libelletype) and empty($description) and empty($libellelocalite)){
                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
@@ -141,9 +165,9 @@ class FrontController extends Controller
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
     );
-                 
+
                             }
-                        
+
                       else if(empty($prixlocation) and empty($libelletype) and empty($description)){
                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Localite::class)
@@ -153,7 +177,7 @@ class FrontController extends Controller
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
     );
-                 
+
                             }
                        else  if(empty($prixlocation) and empty($description) and empty($libellelocalite)){
                                  $reservations = $this->getDoctrine()->getManager()
@@ -164,7 +188,7 @@ class FrontController extends Controller
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
     );
-                 
+
                             }
                         else if(empty($prixlocation) and empty($libelletype) and empty($libellelocalite)){
                                  $reservations = $this->getDoctrine()->getManager()
@@ -175,10 +199,10 @@ class FrontController extends Controller
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
     );
-                 
+
                             }
-                        
-                        
+
+
                                             else{
                                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
@@ -187,8 +211,8 @@ class FrontController extends Controller
                         $reservations,
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                        6/*nbre d'éléments par page*/
-                  );    } 
-                        
+                  );    }
+
                     }
                     else{
                           $reservations= $this->getDoctrine()->getManager()
@@ -203,7 +227,7 @@ class FrontController extends Controller
                          return $this->render('HTLImmobilierBundle:Front:listebien.html.twig', array(
                                 'biens' => $bien ,
                                  ));
-          
+
                 }
    /* public function searchLocaliteAction(Request $request){
                      $em = $this->getDoctrine()->getManager();
@@ -219,4 +243,4 @@ class FrontController extends Controller
 
                 ));
     }*/
-} 
+}
