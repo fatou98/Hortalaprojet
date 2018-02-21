@@ -226,8 +226,13 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                           6/*nbre d'éléments par page*/
     );
                     }
+
+$typebien = $this->getDoctrine()->getManager()->getRepository('HTLImmobilierBundle:Typebien')->findAll();
+$localite = $this->getDoctrine()->getManager()->getRepository('HTLImmobilierBundle:Localite')->findAll();
+
+
                          return $this->render('HTLImmobilierBundle:Front:listebien.html.twig', array(
-                                'biens' => $bien ,
+                                'biens' => $bien ,'localites'=>$localite,'typebiens'=>$typebien
                                  ));
 
                 }
