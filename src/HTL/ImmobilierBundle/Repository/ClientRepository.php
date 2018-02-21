@@ -12,7 +12,7 @@ class ClientRepository extends \Doctrine\ORM\EntityRepository
 {
     public function FindClient($email,$password){
          return $this->getEntityManager()
-                ->createQuery('Select c.id FROM
+                ->createQuery('Select c FROM
                 HTLImmobilierBundle:Client c WHERE c.email=:email and c.password=:password')
                  ->setParameters(
                      array('email'=>$email,'password'=>$password))->execute();

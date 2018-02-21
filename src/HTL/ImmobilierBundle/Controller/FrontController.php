@@ -48,11 +48,13 @@ class FrontController extends Controller
     public function reserverBienAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        if ($request->isMethod('POST') && $_POST['form']="connexion") {
+       if ($request->isMethod('POST') && $_POST['form']="connexion") {
             extract($_POST);
-           //$client = new Client();
-                        $client= $em->getRepository(Client::class)->FindClient($email,$password);
-
+         //$client = new Client();
+             $client= $em->getRepository(Client::class)->FindClient($email,$password);
+$clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
+//var_dump($client[0]);
+//die();
             //->getRepository('HTLImmobilierBundle:Client')
             $bien= $em->getRepository(Bien::class)->find($idBien);
 
@@ -60,7 +62,7 @@ class FrontController extends Controller
             $reservation->setDatereservation(new \DateTime('now'));
             $reservation->setEtat(false);
             $reservation->setBien($bien);
-            $reservation->setClient($client);
+            $reservation->setClient($clientreserve);
             $em->persist($reservation);
             $em->flush();
             $bien = $this->getDoctrine()
