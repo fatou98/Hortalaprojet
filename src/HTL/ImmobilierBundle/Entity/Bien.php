@@ -24,7 +24,7 @@ class Bien
      * @ORM\Column(name="nombien", type="string", length=30,nullable=true)
      */
     private $nombien;
-    
+
     /**
      * @var bool
      *
@@ -43,7 +43,7 @@ class Bien
      * @ORM\Column(name="prixlocation", type="integer",nullable=true)
      */
     private $prixlocation;
-    
+
     /**
    * @ORM\ManyToOne(targetEntity="HTL\ImmobilierBundle\Entity\Bien")
    * @ORM\JoinColumn(nullable=true)
@@ -158,7 +158,7 @@ class Bien
     {
         return $this->prixlocation;
     }
-    
+
    public function setLibellelocalite(\HTL\ImmobilierBundle\Entity\Localite $libellelocalite)
     {
         $this->libellelocalite = $libellelocalite;
@@ -191,7 +191,7 @@ class Bien
     {
         return $this->typebien;
     }
-      
+
   public function __construct()
 
   {

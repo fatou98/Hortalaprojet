@@ -15,9 +15,10 @@ class TypebienRepository extends \Doctrine\ORM\EntityRepository
 
              return $this->getEntityManager()
                 ->createQuery(
-                    'SELECT b.id,b.nombien,l.libellelocalite,b.prixlocation,b.description,t.libelletype,i.image FROM HTLImmobilierBundle:Bien b,HTLImmobilierBundle:Localite l,HTLImmobilierBundle:Typebien t,HTLImmobilierBundle:Image i WHERE b.libellelocalite=l.id AND b.typebien=t.id and b.id=i.bien and t.libelletype=:libelletype'
+                    'SELECT b, i FROM HTLImmobilierBundle:Bien b
+        left Join b.images i Join b.typebien t Join b.libellelocalite l WHERE b.etat = 1 and t.libelletype=:libelletype'
                 )
                  ->setParameter('libelletype',  $libelletype)->execute();
-             
+
         }
 }
