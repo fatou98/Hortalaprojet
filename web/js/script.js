@@ -26,7 +26,7 @@ $(document).ready(function(){
     $(".recherche").show();
     });
    $(window).on("scroll",function(){
-      if($(this).scrollTop()>300){$(".div1").fadeIn(600);}
+      if($(this).scrollTop()>250){$(".div1").fadeIn(600);}
 
     })
         $('#accueil').on("click",function(){
@@ -41,7 +41,7 @@ $(document).ready(function(){
     $('#plus').on("click",function(){
     $("#option").show();
     });
-
+  $('#listebientable').dataTable();
 
 
 });

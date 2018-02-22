@@ -11,11 +11,11 @@
 
                      <div class="col-lg-4 card div1">
  <div class="card-header entete"><h3>A la une</h3></div>
-                    <img class="card-img-top" src="{{ asset('image/') }}{{bien.image}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset('image/') }}{{bien.images[0]}}" alt="Card image cap">
                     <div class="card-block">
-                      <h4 class="card-title">{{bien.libelletype}}</h4>
+                      <h4 class="card-title">{{bien.typebien}}</h4>
                      <p class="card-text">{{bien.libellelocalite}}<br>{{bien.prixlocation}}</p>
-                        <a class="btn btn-default reserver" href="{{path('reserver',{id:bien.id})}}" >Reserver</a>
+                        <a class="btn btn-default reserver" href="{{path('reserver',{id:bien.id,libelletype:bien.typebien})}}" >Reserver</a>
                                         </div>
 </div>
 

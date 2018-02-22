@@ -16,31 +16,17 @@ use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Knp\Bundle\PaginatorBundle\Helper\Processeur;
 class FrontController extends Controller
 {
-    /**
-     * @Route("/front/bien/search")
-     */
-    public function searchBienAction(Request $request)
-    {
-      /*if ($request->isMethod('POST')) {
-            extract($_POST);
-            $client = new Client();
-            $client->setNumpiece($numpiece);
-            $client->setNomComplet($nomComplet);
-            $client->setTel($tel);
-            $client->setAdresse($adresse);
-            $client->setEmail($email);
-            $client->setPassword($password);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($client);
-            $em->flush();
-                    return $this->redirectToRoute('reserver');
+    public function listeAdminAction(){
 
 
-      }*/
-    // afin qu'elle puisse afficher le formulaire toute seule
+                            $em = $this->getDoctrine()->getManager();
+         $bien= $em->getRepository(Bien::class)
+            ->FindAllBienlocalitetype();
 
-        return $this->render('HTLImmobilierBundle:Front:search_bien.html.twig', array(
-        ));
+
+                          return $this->render('HTLImmobilierBundle:Front:listeadmin.html.twig', array(
+                                  'biens' => $bien,
+                        ));
     }
     /**
      * @Route("/front/bien/reserver")
@@ -115,6 +101,18 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                 'biens' => $bien
             ));
         }
+            if ($request->isMethod('GET')) {
+            extract($_GET);
+       $bien = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('HTLImmobilierBundle:Bien')
+            ->FindAllBientypebyid($libelletype);
+            var_dump($bien);die();
+            return $this->render('HTLImmobilierBundle:Front:formsearch.html.twig', array(
+                'biens' => $bien
+            ));
+
+}
     }
      public function listeBienAction(){
 
@@ -137,7 +135,7 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                         $libelletype = $_POST["libelletype"];
                         $description = $_POST["description"];
 
-                         if(empty($prixlocation) and empty($libelletype) and empty($description) and empty($libellelocalite)){
+     if(empty($prixlocation) and empty($libelletype) and empty($description) and empty($libellelocalite)){
                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
                                    ->FindAllBienlocalitetype();
@@ -145,8 +143,9 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                         $reservations,
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
-    );}
-                                    else  if(empty($prixlocation) and empty($libelletype) and empty($libellelocalite)){
+                             );
+                                }
+     else  if(empty($prixlocation) and empty($libelletype) and empty($libellelocalite)){
                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
                                    ->FindAllBiensansdescription($prixlocation,$libellelocalite,$libelletype);
@@ -154,11 +153,11 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                         $reservations,
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
-    );
+                            );
 
                             }
 
-                        else if( empty($libelletype) and empty($description) and empty($libellelocalite)){
+     else if( empty($libelletype) and empty($description) and empty($libellelocalite)){
                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
                                    ->FindAllBienprixlocation($prixlocation);
@@ -166,11 +165,11 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                         $reservations,
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
-    );
+                            );
 
                             }
 
-                      else if(empty($prixlocation) and empty($libelletype) and empty($description)){
+     else if(empty($prixlocation) and empty($libelletype) and empty($description)){
                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Localite::class)
                                    ->FindAllLocalite($libellelocalite);
@@ -178,10 +177,10 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                         $reservations,
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
-    );
+                        );
 
-                            }
-                       else  if(empty($prixlocation) and empty($description) and empty($libellelocalite)){
+                    }
+     else  if(empty($prixlocation) and empty($description) and empty($libellelocalite)){
                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Typebien::class)
                                    ->FindAllBientypebien($libelletype);
@@ -189,10 +188,10 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                         $reservations,
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
-    );
+                            );
 
                             }
-                        else if(empty($prixlocation) and empty($libelletype) and empty($libellelocalite)){
+     else if(empty($prixlocation) and empty($libelletype) and empty($libellelocalite)){
                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
                                    ->FindAllBiendescription($description);
@@ -200,12 +199,12 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                         $reservations,
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
-    );
+                                 );
 
                             }
 
 
-                                            else{
+     else{
                                                  $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
                         ->FindAllBienprix($prixlocation,$libellelocalite,$libelletype,$description);
@@ -213,10 +212,10 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                         $reservations,
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                        6/*nbre d'éléments par page*/
-                  );    }
+                         );    }
 
                     }
-                    else{
+    else{
                           $reservations= $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
                       ->FindAllBienlocalitetype();
@@ -224,30 +223,17 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                         $reservations,
                         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
                           6/*nbre d'éléments par page*/
-    );
+                        );
                     }
 
-$typebien = $this->getDoctrine()->getManager()->getRepository('HTLImmobilierBundle:Typebien')->findAll();
-$localite = $this->getDoctrine()->getManager()->getRepository('HTLImmobilierBundle:Localite')->findAll();
+                        $typebien = $this->getDoctrine()->getManager()->getRepository('HTLImmobilierBundle:Typebien')->findAll();
+                        $localite = $this->getDoctrine()->getManager()->getRepository('HTLImmobilierBundle:Localite')->findAll();
 
 
                          return $this->render('HTLImmobilierBundle:Front:listebien.html.twig', array(
-                                'biens' => $bien ,'localites'=>$localite,'typebiens'=>$typebien
+                                'biens' => $bien ,'localites'=>$localite, 'typebiens'=>$typebien
                                  ));
+                                }
 
-                }
-   /* public function searchLocaliteAction(Request $request){
-                     $em = $this->getDoctrine()->getManager();
-                        $bien = $em->getRepository(Localite::class);
-                        if($request->isMethod('post')){
-                                    $libellelocalite = $_POST["libellelocalite"];
 
-                           $bien->FindAllLocalite($libellelocalite);
-                        }
-
-                             return $this->render('HTLImmobilierBundle:Front:listebien.html.twig', array(
-                                   'biens' => $bien,
-
-                ));
-    }*/
 }

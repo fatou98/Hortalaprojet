@@ -9,51 +9,52 @@ namespace HTL\ImmobilierBundle\Repository;
  * repository methods below.
  */
 class BienRepository extends \Doctrine\ORM\EntityRepository
-{
-public function FindAllBienlocalitetype()
-    {
+        {
+                     public function FindAllBienlocalitetype() {
 
-             return $this->getEntityManager()
-                ->createQuery(
-                    'SELECT b.id,b.nombien,l.libellelocalite,b.prixlocation,b.description,t.libelletype,i.image FROM HTLImmobilierBundle:Bien b,HTLImmobilierBundle:Localite l,HTLImmobilierBundle:Typebien t,HTLImmobilierBundle:Image i WHERE b.libellelocalite=l.id AND b.typebien=t.id and b.id=i.bien'
-                )
-                 ->getResult();
+                    return $this->getEntityManager()
+                        ->createQuery(
+                            'SELECT b, i FROM HTLImmobilierBundle:Bien b
+        left Join b.images i Join b.typebien t Join b.libellelocalite l WHERE b.etat = 1')
+                        ->getResult();
+
+                }
+                /*SELECT b.id,b.nombien,b.etat,l.libellelocalite,b.prixlocation,
+                            b.description,t.libelletype,b.images FROM HTLImmobilierBundle:Bien b
+                            ,HTLImmobilierBundle:Localite l,HTLImmobilierBundle:Typebien t,
+                            HTLImmobilierBundle:Image i WHERE b.libellelocalite=l.id AND
+                            b.typebien=t.id  and b.images=i.id*/
+            public function FindAllBienlocalitetypeid($id)
+            {
+
+                    return $this->getEntityManager()
+                        ->createQuery(
+                            'SELECT b, i FROM HTLImmobilierBundle:Bien b
+        left Join b.images i Join b.typebien t Join b.libellelocalite l WHERE b.etat = 1 and b.id=:id'
+                           /* 'SELECT b.id,b.nombien,l.libellelocalite,b.prixlocation,b.description,
+                            t.libelletype,i.image FROM HTLImmobilierBundle:Bien b,
+                            HTLImmobilierBundle:Localite l,HTLImmobilierBundle:Typebien t,
+                            HTLImmobilierBundle:Image i WHERE b.libellelocalite=l.id AND
+                            b.typebien=t.id and b.id=i.bien and '*/
+                        )
+                        ->setParameter('id',$id)->execute();
 
         }
-    public function FindAllBienlocalitetypeid($id)
-    {
+          public function FindAllBientypebyid($libelletype)
+            {
 
-             return $this->getEntityManager()
-                ->createQuery(
-                    'SELECT b.id,b.nombien,l.libellelocalite,b.prixlocation,b.description,
-                    t.libelletype,i.image FROM HTLImmobilierBundle:Bien b,
-                    HTLImmobilierBundle:Localite l,HTLImmobilierBundle:Typebien t,
-                    HTLImmobilierBundle:Image i WHERE b.libellelocalite=l.id AND
-                    b.typebien=t.id and b.id=i.bien and b.id=:id'
-                )
-                 ->setParameter('id',$id)->execute();
+                    return $this->getEntityManager()
+                        ->createQuery(
+                            'SELECT b.id,b.nombien,l.libellelocalite,b.prixlocation,b.description,
+                            t.libelletype,i.image FROM HTLImmobilierBundle:Bien b,
+                            HTLImmobilierBundle:Localite l,HTLImmobilierBundle:Typebien t,
+                            HTLImmobilierBundle:Image i WHERE t.libelletype=:libelletype'
+                        )
+                        ->setParameter('libelletype',$libelletype)->execute();
 
         }
 public function FindAllBienprix($prixlocation,$libellelocalite,$libelletype,$description)
-    {
-/*
-             return $this->getEntityManager()
-                ->createQueryBuilder()
-                 ->SELECT('b','l','t','i')
-                 ->FROM('HTLImmobilierBundle:Bien','b')
-                 ->FROM('HTLImmobilierBundle:Image','i')
-                 ->leftJoin('b.libellelocalite','l')
-                 ->leftJoin('b.typebien','t')
-                 ->leftJoin('i.bien','im')
-                 ->where('l=:libellelocalite')
-                 ->orwhere('t=:libelletype')
-                 ->orwhere('b.prixlocation=:prixlocation')
-                 ->orwhere('b.description LIKE :description')
- ->setParameters(array('prixlocation'=>$prixlocation,'libellelocalite'=>$libellelocalite,'libelletype'=>
-                         $libelletype,'description'=>'%'.$description.'%'
-                      ))
-                 ->getQuery()->getResult();*/
-              return $this->getEntityManager()->createQuery(
+    {   return $this->getEntityManager()->createQuery(
 
                 'SELECT b.id,b.nombien,l.libellelocalite,b.prixlocation,b.description,t.libelletype,i.image FROM HTLImmobilierBundle:Bien b,HTLImmobilierBundle:Localite l,HTLImmobilierBundle:Typebien t,HTLImmobilierBundle:Image i WHERE b.libellelocalite=l.id AND b.typebien=t.id and b.id=i.bien and b.prixlocation=:prixlocation AND t.libelletype=:libelletype AND b.description LIKE :description AND l.libellelocalite=:libellelocalite'
                 )
@@ -90,7 +91,11 @@ public function InsertAllreservation($prenom,$nom,$numpiece,$email,$password,$vp
              return $this->getEntityManager()
                 ->createQuery(
 
-                'SELECT b.id,b.nombien,l.libellelocalite,b.prixlocation,b.description,t.libelletype,i.image FROM HTLImmobilierBundle:Bien b,HTLImmobilierBundle:Localite l,HTLImmobilierBundle:Typebien t,HTLImmobilierBundle:Image i WHERE b.libellelocalite=l.id AND b.typebien=t.id and b.id=i.bien and b.prixlocation=:prixlocation AND t.libelletype=:libelletype AND l.libellelocalite=:libellelocalite'
+                'SELECT b.id,b.nombien,l.libellelocalite,b.prixlocation,b.description,t.libelletype,i.image
+                FROM HTLImmobilierBundle:Bien b,HTLImmobilierBundle:Localite l,HTLImmobilierBundle:Typebien t,
+                HTLImmobilierBundle:Image i WHERE b.libellelocalite=l.id AND b.typebien=t.id and b.id=i.bien
+                and b.prixlocation=:prixlocation AND
+                 t.libelletype=:libelletype AND l.libellelocalite=:libellelocalite'
                 )
                  ->setParameters(array('prixlocation'=>$prixlocation,'libellelocalite'=>$libellelocalite,'libelletype'=>
                                       $libelletype
@@ -111,3 +116,22 @@ public function InsertAllreservation($prenom,$nom,$numpiece,$email,$password,$vp
         }
 
 }
+
+/*
+             return $this->getEntityManager()
+                ->createQueryBuilder()
+                 ->SELECT('b','l','t','i')
+                 ->FROM('HTLImmobilierBundle:Bien','b')
+                 ->FROM('HTLImmobilierBundle:Image','i')
+                 ->leftJoin('b.libellelocalite','l')
+                 ->leftJoin('b.typebien','t')
+                 ->leftJoin('i.bien','im')
+                 ->where('l=:libellelocalite')
+                 ->orwhere('t=:libelletype')
+                 ->orwhere('b.prixlocation=:prixlocation')
+                 ->orwhere('b.description LIKE :description')
+ ->setParameters(array('prixlocation'=>$prixlocation,'libellelocalite'=>$libellelocalite,'libelletype'=>
+                         $libelletype,'description'=>'%'.$description.'%'
+                      ))
+                 ->getQuery()->getResult();*/
+

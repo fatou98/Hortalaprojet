@@ -23,7 +23,6 @@ searchtype:
 searchlocalite:
     path:     /front/bien/localite
     defaults: { _controller: HTLImmobilierBundle:Front:searchLocalite }
-searchdescription:
-    path:     /front/bien/description
-    defaults: { _controller: HTLImmobilierBundle:Front:searchDescription }
-    
+listeadmin:
+    path:     /front/bien/admin
+    defaults: { _controller: HTLImmobilierBundle:Front:listeAdmin }

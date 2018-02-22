@@ -162,14 +162,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchTypebienAction',  '_route' => 'searchtype',);
             }
 
-            // searchdescription
-            if ('/front/bien/description' === $pathinfo) {
-                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchDescriptionAction',  '_route' => 'searchdescription',);
-            }
-
-            // htl_immobilier_front_searchbien
-            if ('/front/bien/search' === $pathinfo) {
-                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchBienAction',  '_route' => 'htl_immobilier_front_searchbien',);
+            // listeadmin
+            if ('/front/bien/admin' === $pathinfo) {
+                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::listeAdminAction',  '_route' => 'listeadmin',);
             }
 
             // htl_immobilier_front_reserverbien

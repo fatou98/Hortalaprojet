@@ -11,17 +11,17 @@
   {% for bien in biens %}
 
 <article class="col-lg-4">
-      <div class="card-header entete">  
-          <h1>{{bien.libelletype}}</h1>
-</div><div class="card-body">
-                      <img src="{{ asset('image/') }}{{bien.image}}" alt="Los Angeles" class="thumbnail" width="300px" height="auto">
-               <div class="imgpetit"> <img src="{{ asset('image/') }}{{bien.image}}" alt="Los Angeles" class="thumbnail" width="100px" height="auto">
-                <img src="{{ asset('image/') }}{{bien.image}}" alt="Los Angeles" class="thumbnail" width="100px" height="auto">
-                <img src="{{ asset('image/') }}{{bien.image}}" alt="Los Angeles" class="thumbnail" width="100px" height="auto">
-                </div>
-          
+      <div class="card-header entete">
+          <h1>{{bien.typebien}}</h1>
+                      <img src="{{ asset('image/') }}{{bien.images[0]}}" alt="Los Angeles" class="thumbnail" width="300px" height="auto">
+
+               <div class="imgpetit">                         {% for image in  bien.images %}
+<img src="{{ asset('image/') }}{{image.image}}" alt="Los Angeles" class="thumbnail" width="100px" height="auto">
+               {% endfor %}  </div>
+
+
           </div>
-     
+
     </article>
 
 
@@ -34,7 +34,9 @@
 {% else %}
   {% endfor %}
  {% endblock %}
+{% block autres %}
 
+  {% endblock  %}
 {% block footer %}
 
 
@@ -46,7 +48,7 @@
 
 
 <div class="container bg-warning divtable">
-   
+
 <h1>LISTE DES UTILISATEURS</h1>
 <table class="table table-responsive table-condensed" border="1px">
 <thead>
@@ -57,7 +59,7 @@
         <th>description</th>
         <th>prixlocation</th>
         <th>image</th>
-    
+
     </tr>
 </thead>
   {% for bien in biens %}

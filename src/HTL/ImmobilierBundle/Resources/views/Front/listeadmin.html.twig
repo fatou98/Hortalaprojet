@@ -1,0 +1,60 @@
+
+{% extends "base1.html.twig" %}
+
+
+
+
+    {% block table%}
+
+<div class="container bg-warning divtable" >
+<h1>LISTE DES Biens</h1>
+<table class="table table-responsive table-condensed" id="listebientable">
+<thead>
+    <tr>
+        <th>nom</th>
+        <th>localite</th>
+        <th>typebien</th>
+        <th>description</th>
+        <th>etat</th>
+        <th>Modifier etat</th>
+        <th>Modifier</th>
+        <th>Supprimer</th>
+    </tr>
+</thead>
+  {% for bien in biens %}
+  <tbody>
+    <tr>
+        <td>{{bien.nombien}}</td>
+        <td>{{bien.libellelocalite}}</td>
+        <td>{{bien.libelletype}}</td>
+        <td>{{bien.description}}</td>
+        <td>{{bien.etat}}</td>
+         <td><a href="{{path('listeadmin',{id:bien.id})}}" class="btn btn-default bg-primary">modifier etat</a></td>
+        <td><a href="{{path('listeadmin',{id:bien.id})}}" class="btn btn-default bg-primary">modifier</a></td>
+        <td><a href="{{path('listeadmin',{id:bien.id})}}" class="btn btn-default bg-primary">supprimer</a></td>
+
+
+    </tr>
+    </tbody>
+
+{% else %}
+
+  {% endfor %}
+</table>
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% block footer %}
+
+{% endblock %}
+
+
+
+
+
+
