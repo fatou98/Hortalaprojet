@@ -26,3 +26,9 @@ searchlocalite:
 listeadmin:
     path:     /front/bien/admin
     defaults: { _controller: HTLImmobilierBundle:Front:listeAdmin }
+listereservation:
+    path:     /front/bien/reservation
+    defaults: { _controller: HTLImmobilierBundle:Front:listeReservation }
+details:
+    path:     /front/bien/details
+    defaults: { _controller: HTLImmobilierBundle:Front:detailsReservation }

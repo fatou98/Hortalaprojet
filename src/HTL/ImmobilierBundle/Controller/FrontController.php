@@ -28,6 +28,22 @@ class FrontController extends Controller
                                   'biens' => $bien,
                         ));
     }
+     public function listeReservationAction(){
+
+
+                            $em = $this->getDoctrine()->getManager();
+         $reservation= $em->getRepository(Reservation::class)
+            ->FindBy(array('etat' => 0 ));
+
+
+                          return $this->render('HTLImmobilierBundle:Front:listereservation.html.twig', array(
+                                  'reservations' => $reservation,
+                        ));
+    }
+public function detailsReservationAction(){
+    /*travail a faire*/
+}
+
     /**
      * @Route("/front/bien/reserver")
      */

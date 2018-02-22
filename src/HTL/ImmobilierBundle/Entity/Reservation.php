@@ -143,4 +143,8 @@ class Reservation
     {
         return $this->client;
     }
+          public function __toString(){
+
+        return $this->client;
+    }
 }

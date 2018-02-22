@@ -10,4 +10,16 @@ namespace HTL\ImmobilierBundle\Repository;
  */
 class ReservationRepository extends \Doctrine\ORM\EntityRepository
 {
+      public function FindAllReservation() {
+
+                    return $this->getEntityManager()
+                        ->createQuery(
+                            /*'SELECT c.nomComplet,c.adresse,b.typebien,b.libellelocalite,b.libelletype,b.prixlocation,  WHERE r.etat = 0')*/
+                            'SELECT c.nomComplet,c.adresse,b.nombien,b.libellelocalite,b.libelletype,b.prixlocation,r FROM HTLImmobilierBundle:Reservation r
+
+                         left Join r.bien b Join r.client c WHERE r.etat = 0')
+                        ->getResult();
+
+                }
+
 }

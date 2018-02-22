@@ -167,6 +167,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::listeAdminAction',  '_route' => 'listeadmin',);
             }
 
+            // listereservation
+            if ('/front/bien/reservation' === $pathinfo) {
+                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::listeReservationAction',  '_route' => 'listereservation',);
+            }
+
             // htl_immobilier_front_reserverbien
             if ('/front/bien/reserver' === $pathinfo) {
                 return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::reserverBienAction',  '_route' => 'htl_immobilier_front_reserverbien',);

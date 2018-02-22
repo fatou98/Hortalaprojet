@@ -199,5 +199,4 @@ class Client
         return $this->password;
     }
 
-
 }
