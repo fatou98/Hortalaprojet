@@ -22,89 +22,80 @@ class __TwigTemplate_797bb8f9d89faf5752636b1c7e33a6efa663984240c93d6e7e548f29a33
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8bd0a49ffab3201e894f1cc92218580e8182c568fb865ab73549f35a94513a95 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8bd0a49ffab3201e894f1cc92218580e8182c568fb865ab73549f35a94513a95->enter($__internal_8bd0a49ffab3201e894f1cc92218580e8182c568fb865ab73549f35a94513a95_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "HTLImmobilierBundle:Front:listeadmin.html.twig"));
+        $__internal_6244a9f3b78e0f64f7c64d367088a99305164f2aafeaf6ead0bcd749dea120a6 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_6244a9f3b78e0f64f7c64d367088a99305164f2aafeaf6ead0bcd749dea120a6->enter($__internal_6244a9f3b78e0f64f7c64d367088a99305164f2aafeaf6ead0bcd749dea120a6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "HTLImmobilierBundle:Front:listeadmin.html.twig"));
 
-        $__internal_24c54d589777eed5754178a33c317d36247e502889fc24946c32b36acc3cb23e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_24c54d589777eed5754178a33c317d36247e502889fc24946c32b36acc3cb23e->enter($__internal_24c54d589777eed5754178a33c317d36247e502889fc24946c32b36acc3cb23e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "HTLImmobilierBundle:Front:listeadmin.html.twig"));
+        $__internal_dc9d4b304421efee0446f28ddbdde771d0a00f589611e47dbaf8ab3c6a68f048 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_dc9d4b304421efee0446f28ddbdde771d0a00f589611e47dbaf8ab3c6a68f048->enter($__internal_dc9d4b304421efee0446f28ddbdde771d0a00f589611e47dbaf8ab3c6a68f048_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "HTLImmobilierBundle:Front:listeadmin.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_8bd0a49ffab3201e894f1cc92218580e8182c568fb865ab73549f35a94513a95->leave($__internal_8bd0a49ffab3201e894f1cc92218580e8182c568fb865ab73549f35a94513a95_prof);
+        $__internal_6244a9f3b78e0f64f7c64d367088a99305164f2aafeaf6ead0bcd749dea120a6->leave($__internal_6244a9f3b78e0f64f7c64d367088a99305164f2aafeaf6ead0bcd749dea120a6_prof);
 
         
-        $__internal_24c54d589777eed5754178a33c317d36247e502889fc24946c32b36acc3cb23e->leave($__internal_24c54d589777eed5754178a33c317d36247e502889fc24946c32b36acc3cb23e_prof);
+        $__internal_dc9d4b304421efee0446f28ddbdde771d0a00f589611e47dbaf8ab3c6a68f048->leave($__internal_dc9d4b304421efee0446f28ddbdde771d0a00f589611e47dbaf8ab3c6a68f048_prof);
 
     }
 
     // line 7
     public function block_table($context, array $blocks = array())
     {
-        $__internal_d6615e57988eaf8dac87e3879221e1d8d4c55026ec7125cf01db46409f67f63f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d6615e57988eaf8dac87e3879221e1d8d4c55026ec7125cf01db46409f67f63f->enter($__internal_d6615e57988eaf8dac87e3879221e1d8d4c55026ec7125cf01db46409f67f63f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "table"));
+        $__internal_de82c5785293920e04d73c433ad862631b9e03529c2f4fee1cfa1b91e90f2155 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_de82c5785293920e04d73c433ad862631b9e03529c2f4fee1cfa1b91e90f2155->enter($__internal_de82c5785293920e04d73c433ad862631b9e03529c2f4fee1cfa1b91e90f2155_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "table"));
 
-        $__internal_de6bb55e78f16ded78527d05c9fcdad84ff238a0b021ee2ab04518034d22c859 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_de6bb55e78f16ded78527d05c9fcdad84ff238a0b021ee2ab04518034d22c859->enter($__internal_de6bb55e78f16ded78527d05c9fcdad84ff238a0b021ee2ab04518034d22c859_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "table"));
+        $__internal_910263e7c8eeb7d55f3850eb86ed22bfe637dd216ba6887d1c700419928110fe = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_910263e7c8eeb7d55f3850eb86ed22bfe637dd216ba6887d1c700419928110fe->enter($__internal_910263e7c8eeb7d55f3850eb86ed22bfe637dd216ba6887d1c700419928110fe_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "table"));
 
         // line 8
         echo "
-<div class=\"container bg-warning divtable\" >
+<div class=\"container divtable\" >
 <h1>LISTE DES Biens</h1>
-<table class=\"table table-responsive table-condensed\" id=\"listebientable\">
+<table class=\"table table-condensed\" id=\"listebientable\">
 <thead>
-    <tr>
-        <th>nom</th>
+    <style>
+    </style>
+
+    
+    <tr class=\"row\"><th>typebien</th>
         <th>localite</th>
-        <th>typebien</th>
-        <th>description</th>
-        <th>etat</th>
-        <th>Modifier etat</th>
-        <th>Modifier</th>
-        <th>Supprimer</th>
+        <th>prix</th>
+        <th>image</th>
+        <th>details</th>
+       
     </tr>
 </thead>
   ";
-        // line 24
+        // line 25
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["biens"] ?? $this->getContext($context, "biens")));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["bien"]) {
-            // line 25
+            // line 26
             echo "  <tbody>
-    <tr>
-        <td>";
-            // line 27
-            echo twig_escape_filter($this->env, $this->getAttribute($context["bien"], "nombien", array()), "html", null, true);
-            echo "</td>
+    <tr class=\"row\">
         <td>";
             // line 28
-            echo twig_escape_filter($this->env, $this->getAttribute($context["bien"], "libellelocalite", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["bien"], "typebien", array()), "html", null, true);
             echo "</td>
         <td>";
             // line 29
-            echo twig_escape_filter($this->env, $this->getAttribute($context["bien"], "libelletype", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["bien"], "libellelocalite", array()), "html", null, true);
             echo "</td>
         <td>";
             // line 30
-            echo twig_escape_filter($this->env, $this->getAttribute($context["bien"], "description", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["bien"], "prixlocation", array()), "html", null, true);
             echo "</td>
-        <td>";
+        <td><img class=\"card-img-top\" src=\"";
             // line 31
-            echo twig_escape_filter($this->env, $this->getAttribute($context["bien"], "etat", array()), "html", null, true);
-            echo "</td>
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("image/"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["bien"], "images", array()), 0, array(), "array"), "html", null, true);
+            echo "\" alt=\"Card image cap\" width=\"50px\">
+</td>
          <td><a href=\"";
-            // line 32
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("listeadmin", array("id" => $this->getAttribute($context["bien"], "id", array()))), "html", null, true);
-            echo "\" class=\"btn btn-default bg-primary\">modifier etat</a></td>
-        <td><a href=\"";
             // line 33
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("listeadmin", array("id" => $this->getAttribute($context["bien"], "id", array()))), "html", null, true);
-            echo "\" class=\"btn btn-default bg-primary\">modifier</a></td>
-        <td><a href=\"";
-            // line 34
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("listeadmin", array("id" => $this->getAttribute($context["bien"], "id", array()))), "html", null, true);
-            echo "\" class=\"btn btn-default bg-primary\">supprimer</a></td>
-
+            echo "\" class=\"btn btn-default bg-primary\">details</a></td>
+        
 
     </tr>
     </tbody>
@@ -113,42 +104,42 @@ class __TwigTemplate_797bb8f9d89faf5752636b1c7e33a6efa663984240c93d6e7e548f29a33
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 41
+            // line 40
             echo "
   ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['bien'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
+        // line 42
         echo "</table>
 </div>
 ";
         
-        $__internal_de6bb55e78f16ded78527d05c9fcdad84ff238a0b021ee2ab04518034d22c859->leave($__internal_de6bb55e78f16ded78527d05c9fcdad84ff238a0b021ee2ab04518034d22c859_prof);
+        $__internal_910263e7c8eeb7d55f3850eb86ed22bfe637dd216ba6887d1c700419928110fe->leave($__internal_910263e7c8eeb7d55f3850eb86ed22bfe637dd216ba6887d1c700419928110fe_prof);
 
         
-        $__internal_d6615e57988eaf8dac87e3879221e1d8d4c55026ec7125cf01db46409f67f63f->leave($__internal_d6615e57988eaf8dac87e3879221e1d8d4c55026ec7125cf01db46409f67f63f_prof);
+        $__internal_de82c5785293920e04d73c433ad862631b9e03529c2f4fee1cfa1b91e90f2155->leave($__internal_de82c5785293920e04d73c433ad862631b9e03529c2f4fee1cfa1b91e90f2155_prof);
 
     }
 
-    // line 52
+    // line 51
     public function block_footer($context, array $blocks = array())
     {
-        $__internal_3535ce27d6edde8a73c8b9af1d97fce91ed99310d5e72201295204e97866651f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_3535ce27d6edde8a73c8b9af1d97fce91ed99310d5e72201295204e97866651f->enter($__internal_3535ce27d6edde8a73c8b9af1d97fce91ed99310d5e72201295204e97866651f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "footer"));
+        $__internal_846ea070806252b5ac5ea87f0516bf1906ed093cdf0c3b7d70c014afd82f1065 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_846ea070806252b5ac5ea87f0516bf1906ed093cdf0c3b7d70c014afd82f1065->enter($__internal_846ea070806252b5ac5ea87f0516bf1906ed093cdf0c3b7d70c014afd82f1065_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "footer"));
 
-        $__internal_a5f54ef37ca1fab81f76b547fe4f6870afca5f0b05095b50ee6f0bd7abc2819f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a5f54ef37ca1fab81f76b547fe4f6870afca5f0b05095b50ee6f0bd7abc2819f->enter($__internal_a5f54ef37ca1fab81f76b547fe4f6870afca5f0b05095b50ee6f0bd7abc2819f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "footer"));
+        $__internal_46c9d6b54ff10e5c4267a12c44a4677afc563df2a0b102adbeb86cc7f34051e9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_46c9d6b54ff10e5c4267a12c44a4677afc563df2a0b102adbeb86cc7f34051e9->enter($__internal_46c9d6b54ff10e5c4267a12c44a4677afc563df2a0b102adbeb86cc7f34051e9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 53
+        // line 52
         echo "
 ";
         
-        $__internal_a5f54ef37ca1fab81f76b547fe4f6870afca5f0b05095b50ee6f0bd7abc2819f->leave($__internal_a5f54ef37ca1fab81f76b547fe4f6870afca5f0b05095b50ee6f0bd7abc2819f_prof);
+        $__internal_46c9d6b54ff10e5c4267a12c44a4677afc563df2a0b102adbeb86cc7f34051e9->leave($__internal_46c9d6b54ff10e5c4267a12c44a4677afc563df2a0b102adbeb86cc7f34051e9_prof);
 
         
-        $__internal_3535ce27d6edde8a73c8b9af1d97fce91ed99310d5e72201295204e97866651f->leave($__internal_3535ce27d6edde8a73c8b9af1d97fce91ed99310d5e72201295204e97866651f_prof);
+        $__internal_846ea070806252b5ac5ea87f0516bf1906ed093cdf0c3b7d70c014afd82f1065->leave($__internal_846ea070806252b5ac5ea87f0516bf1906ed093cdf0c3b7d70c014afd82f1065_prof);
 
     }
 
@@ -164,7 +155,7 @@ class __TwigTemplate_797bb8f9d89faf5752636b1c7e33a6efa663984240c93d6e7e548f29a33
 
     public function getDebugInfo()
     {
-        return array (  145 => 53,  136 => 52,  124 => 43,  117 => 41,  105 => 34,  101 => 33,  97 => 32,  93 => 31,  89 => 30,  85 => 29,  81 => 28,  77 => 27,  73 => 25,  68 => 24,  50 => 8,  41 => 7,  11 => 2,);
+        return array (  136 => 52,  127 => 51,  115 => 42,  108 => 40,  96 => 33,  90 => 31,  86 => 30,  82 => 29,  78 => 28,  74 => 26,  69 => 25,  50 => 8,  41 => 7,  11 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -185,33 +176,32 @@ class __TwigTemplate_797bb8f9d89faf5752636b1c7e33a6efa663984240c93d6e7e548f29a33
 
     {% block table%}
 
-<div class=\"container bg-warning divtable\" >
+<div class=\"container divtable\" >
 <h1>LISTE DES Biens</h1>
-<table class=\"table table-responsive table-condensed\" id=\"listebientable\">
+<table class=\"table table-condensed\" id=\"listebientable\">
 <thead>
-    <tr>
-        <th>nom</th>
+    <style>
+    </style>
+
+    
+    <tr class=\"row\"><th>typebien</th>
         <th>localite</th>
-        <th>typebien</th>
-        <th>description</th>
-        <th>etat</th>
-        <th>Modifier etat</th>
-        <th>Modifier</th>
-        <th>Supprimer</th>
+        <th>prix</th>
+        <th>image</th>
+        <th>details</th>
+       
     </tr>
 </thead>
   {% for bien in biens %}
   <tbody>
-    <tr>
-        <td>{{bien.nombien}}</td>
+    <tr class=\"row\">
+        <td>{{bien.typebien}}</td>
         <td>{{bien.libellelocalite}}</td>
-        <td>{{bien.libelletype}}</td>
-        <td>{{bien.description}}</td>
-        <td>{{bien.etat}}</td>
-         <td><a href=\"{{path('listeadmin',{id:bien.id})}}\" class=\"btn btn-default bg-primary\">modifier etat</a></td>
-        <td><a href=\"{{path('listeadmin',{id:bien.id})}}\" class=\"btn btn-default bg-primary\">modifier</a></td>
-        <td><a href=\"{{path('listeadmin',{id:bien.id})}}\" class=\"btn btn-default bg-primary\">supprimer</a></td>
-
+        <td>{{bien.prixlocation}}</td>
+        <td><img class=\"card-img-top\" src=\"{{ asset('image/') }}{{bien.images[0]}}\" alt=\"Card image cap\" width=\"50px\">
+</td>
+         <td><a href=\"{{path('listeadmin',{id:bien.id})}}\" class=\"btn btn-default bg-primary\">details</a></td>
+        
 
     </tr>
     </tbody>

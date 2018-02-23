@@ -122,12 +122,12 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\DefaultController::indexAction',  '_route' => 'htl_immobilier_homepage',);
         }
 
-        // accueil
-        if ('/accueil' === $pathinfo) {
-            return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\ReservationController::accueilAction',  '_route' => 'accueil',);
-        }
-
         if (0 === strpos($pathinfo, '/front/bien')) {
+            // accueil
+            if ('/front/bien/accueil' === $pathinfo) {
+                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::accueilAction',  '_route' => 'accueil',);
+            }
+
             // search
             if ('/front/bien/search' === $pathinfo) {
                 return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchBienAction',  '_route' => 'search',);
@@ -142,24 +142,27 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::reserverBienAction',  '_route' => 'reserver',);
             }
 
-            // listebien
-            if ('/front/bien/listebien' === $pathinfo) {
-                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::listeBienAction',  '_route' => 'listebien',);
-            }
+            if (0 === strpos($pathinfo, '/front/bien/l')) {
+                // listebien
+                if ('/front/bien/listebien' === $pathinfo) {
+                    return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::listeBienAction',  '_route' => 'listebien',);
+                }
 
-            // searchlocalite
-            if ('/front/bien/localite' === $pathinfo) {
-                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchLocaliteAction',  '_route' => 'searchlocalite',);
+                // listelocalite
+                if ('/front/bien/listelocalite' === $pathinfo) {
+                    return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::listelocaliteAction',  '_route' => 'listelocalite',);
+                }
+
+                // searchlocalite
+                if ('/front/bien/localite' === $pathinfo) {
+                    return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchLocaliteAction',  '_route' => 'searchlocalite',);
+                }
+
             }
 
             // searchprix
             if ('/front/bien/prix' === $pathinfo) {
                 return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchPrixAction',  '_route' => 'searchprix',);
-            }
-
-            // searchtype
-            if ('/front/bien/type' === $pathinfo) {
-                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::searchTypebienAction',  '_route' => 'searchtype',);
             }
 
             // listeadmin
@@ -180,6 +183,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // details
             if ('/front/bien/details' === $pathinfo) {
                 return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::detailsReservationAction',  '_route' => 'details',);
+            }
+
+            // listetype
+            if ('/front/bien/typebien' === $pathinfo) {
+                return array (  '_controller' => 'HTL\\ImmobilierBundle\\Controller\\FrontController::listTypebienAction',  '_route' => 'listetype',);
             }
 
         }

@@ -2,24 +2,20 @@ htl_immobilier_homepage:
     path:     /
     defaults: { _controller: HTLImmobilierBundle:Default:index }
 accueil:
-    path:     /accueil
-    defaults: { _controller: HTLImmobilierBundle:Reservation:accueil }
+    path:     /front/bien/accueil
+    defaults: { _controller: HTLImmobilierBundle:Front:accueil }
 search:
     path:     /front/bien/search
     defaults: { _controller: HTLImmobilierBundle:Front:searchBien }
 reserver:
     path:     /front/bien/
     defaults: { _controller: HTLImmobilierBundle:Front:reserverBien }
-
 listebien:
     path:     /front/bien/listebien
     defaults: { _controller: HTLImmobilierBundle:Front:listeBien }
 searchprix:
     path:     /front/bien/prix
     defaults: { _controller: HTLImmobilierBundle:Front:searchPrix}
-searchtype:
-    path:     /front/bien/type
-    defaults: { _controller: HTLImmobilierBundle:Front:searchTypebien }
 searchlocalite:
     path:     /front/bien/localite
     defaults: { _controller: HTLImmobilierBundle:Front:searchLocalite }
@@ -32,3 +28,9 @@ listereservation:
 details:
     path:     /front/bien/details
     defaults: { _controller: HTLImmobilierBundle:Front:detailsReservation }
+listetype:
+    path:     /front/bien/typebien
+    defaults: { _controller: HTLImmobilierBundle:Front:listTypebien }
+listelocalite:
+    path:     /front/bien/listelocalite
+    defaults: { _controller: HTLImmobilierBundle:Front:listelocalite }

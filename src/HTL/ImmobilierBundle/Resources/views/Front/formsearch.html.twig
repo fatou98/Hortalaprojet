@@ -15,14 +15,13 @@
           <h1>{{bien.typebien}}</h1>
                       <img src="{{ asset('image/') }}{{bien.images[0]}}" alt="Los Angeles" class="thumbnail" width="300px" height="auto">
 
-               <div class="imgpetit">                         {% for image in  bien.images %}
-<img src="{{ asset('image/') }}{{image.image}}" alt="Los Angeles" class="thumbnail" width="100px" height="auto">
-               {% endfor %}  </div>
-
-
+               <div class="imgpetit">    
+               {% for image in  bien.images %}
+                   <img src="{{ asset('image/') }}{{image.image}}" alt="Los Angeles" class="thumbnail" width="100px" height="auto">
+               {% endfor %} 
           </div>
-
-    </article>
+          </div>
+        </article>
 
 
 

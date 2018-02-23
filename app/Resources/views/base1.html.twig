@@ -11,21 +11,19 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
-
-
-
 {% endblock %}        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+                <script src="{{ asset('js/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/datatables.js' )}}"></script>
     </head>
 
     <body>
+        {% block body %}{% endblock %}  
         {% block table %}{% endblock %}
 
      {% block javascripts %}
 
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"> </script>
         <script src="{{ asset('js/bootstrap.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('js/datatables.js' )}}"></script>
 
          {% endblock %}
     </body>
