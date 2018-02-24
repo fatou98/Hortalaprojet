@@ -16,33 +16,6 @@ use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Knp\Bundle\PaginatorBundle\Helper\Processeur;
 class FrontController extends Controller
 {
-            public function listelocaliteAction(){
-
-
-            $em = $this->getDoctrine()->getManager();
-        $localite= $em->getRepository(Localite::class)
-        ->FindAll();
-
-          return $this->render('HTLImmobilierBundle:Front:localite.html.twig', array(
-                  'localites' => $localite,
-            ));
-                }
-     public function listTypebienAction()
-    {
-         
-        $repository= $this->getDoctrine()->getManager()->getRepository('HTLImmobilierBundle:Typebien');
-        $localite=$repository->findAll();
-       
-        return $this->render('HTLImmobilierBundle:Front:listetypebien.html.twig', array(
-             'localites' => $localite,
-        ));
-    }
-     public function accueilAction(){
-                        
-       return $this->render('HTLImmobilierBundle:Front:accueil.html.twig', array());
-
-         }
-
     public function listeAdminAction(){
 
 
@@ -77,7 +50,32 @@ public function detailsReservationAction(){
     public function reserverBienAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-         if ($request->isMethod('POST') && $_POST['form']="inscription") {
+       if ($request->isMethod('POST') && $_POST['form']="connexion") {
+            extract($_POST);
+         //$client = new Client();
+             $client= $em->getRepository(Client::class)->FindClient($email,$password);
+$clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
+//var_dump($client[0]);
+//die();
+            //->getRepository('HTLImmobilierBundle:Client')
+            $bien= $em->getRepository(Bien::class)->find($idBien);
+
+            $reservation = new Reservation();
+            $reservation->setDatereservation(new \DateTime('now'));
+            $reservation->setEtat(false);
+            $reservation->setBien($bien);
+            $reservation->setClient($clientreserve);
+            $em->persist($reservation);
+            $em->flush();
+            $bien = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('HTLImmobilierBundle:Bien')
+            ->FindAllBienlocalitetypeid($idBien);
+              return $this->render('HTLImmobilierBundle:Front:formsearch.html.twig', array(
+                'biens' => $bien
+            ));
+                }
+        if ($request->isMethod('POST') && $_POST['form']="inscription") {
             extract($_POST);
             $client = new Client();
             $client->setNumpiece($numpiece);
@@ -108,32 +106,6 @@ public function detailsReservationAction(){
             ));
         }
 
-       if ($request->isMethod('POST') && $_POST['form']="connexion") {
-            extract($_POST);
-         //$client = new Client();
-             $client= $em->getRepository(Client::class)->FindClient($email,$password);
-$clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
-//var_dump($client[0]);
-//die();
-            //->getRepository('HTLImmobilierBundle:Client')
-            $bien= $em->getRepository(Bien::class)->find($idBien);
-           
-            $reservation = new Reservation();
-            $reservation->setDatereservation(new \DateTime('now'));
-            $reservation->setEtat(false);
-            $reservation->setBien($bien);
-            $reservation->setClient($clientreserve);
-            $em->persist($reservation);
-            $em->flush();
-            $bien = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('HTLImmobilierBundle:Bien')
-            ->FindAllBienlocalitetypeid($idBien);
-              return $this->render('HTLImmobilierBundle:Front:formsearch.html.twig', array(
-                'biens' => $bien
-            ));
-                }
-       
 
         if ($request->isMethod('GET')) {
             extract($_GET);
@@ -161,8 +133,8 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
      public function listeBienAction(){
 
                             $em = $this->getDoctrine()->getManager();
-                            $bien= $em->getRepository(Bien::class)
-                            ->FindAllBienlocalitetype();
+         $bien= $em->getRepository(Bien::class)
+            ->FindAllBienlocalitetype();
 
 
                           return $this->render('HTLImmobilierBundle:Front:listebien.html.twig', array(
@@ -249,7 +221,7 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
 
 
      else{
-                         $reservations = $this->getDoctrine()->getManager()
+                                                 $reservations = $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
                         ->FindAllBienprix($prixlocation,$libellelocalite,$libelletype,$description);
                         $bien= $this->get('knp_paginator')->paginate(
@@ -259,7 +231,6 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                          );    }
 
                     }
-                    
     else{
                           $reservations= $this->getDoctrine()->getManager()
                         ->getRepository(Bien::class)
@@ -280,5 +251,16 @@ $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
                                  ));
                                 }
 
+ public function loadBienAction(){
 
+    $em = $this->getDoctrine()->getManager();
+    $bien= $em->getRepository(Bien::class)
+     ->findBienId();
+    $client= $em->getRepository(Client::class)->findClientId();
+return $this->render('HTLImmobilierBundle:Front:pape.html.twig', array(
+                     'biens' => $bien,'clients'=>$client  ));
+                                
+
+                        
+ }
 }
