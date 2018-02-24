@@ -88,7 +88,7 @@ class BienRepository extends \Doctrine\ORM\EntityRepository
 
                     return $this->getEntityManager()
                         ->createQuery(
-                            'SELECT b  FROM HTLImmobilierBundle:Bien b where id=1')
+                            'SELECT b  FROM HTLImmobilierBundle:Bien b where b.id=1')
                         ->getResult();
 
                             }
