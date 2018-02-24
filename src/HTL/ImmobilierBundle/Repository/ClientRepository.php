@@ -18,4 +18,12 @@ class ClientRepository extends \Doctrine\ORM\EntityRepository
                      array('email'=>$email,'password'=>$password))->execute();
 
     }
+    public function FindClientId() {
+
+                    return $this->getEntityManager()
+                        ->createQuery(
+                            'SELECT c  FROM HTLImmobilierBundle:Client c where id=1')
+                        ->getResult();
+
+                            }
 }
