@@ -1,4 +1,6 @@
 
+
+
 {% extends "base1.html.twig" %}
 
 
@@ -34,14 +36,11 @@
 
     </tr>
     </tbody>
-
-{% else %}
-
   {% endfor %}
 </table>
 </div>
 {% endblock %}
- {% block table%}
+ {% block table2%}
 
 <div class="container bg-warning divtable" >
 <h1>INFORMATION CLIENT</h1>
@@ -60,12 +59,12 @@
   {% for client in clients %}
   <tbody>
     <tr>
-        <td>{{bien.numpiece}}</td>
-        <td>{{bien.nomComplet}}</td>
-        <td>{{bien.tel}}</td>
-        <td>{{bien.adresse}}</td>
-        <td>{{bien.email}}</td>
-      <td>{{bien.password}}</td>
+        <td>{{client.numpiece}}</td>
+        <td>{{client.nomComplet}}</td>
+        <td>{{client.tel}}</td>
+        <td>{{client.adresse}}</td>
+        <td>{{client.email}}</td>
+      <td>{{client.password}}</td>
 
          
 
@@ -78,7 +77,7 @@
 </table>
 </div>
 {% endblock %}
- {% block table%}
+ {% block table3%}
 
 <div class="container bg-warning divtable" >
 <h1>INFO CONTRAT</h1>
@@ -100,13 +99,15 @@
         <td>{{2 * bien.prixlocation}}</td>     
 
     </tr>
-    <tr> Accepter vous les termes du contrat <td> <input type="checkbox" name="contrat" id="contrat"/></td></tr>
     </tbody>
 
 {% else %}
 
   {% endfor %}
+
 </table>
+      <tr> Accepter vous les termes du contrat  <input type="checkbox" name="contrat" id="contrat"/></tr>
+
 </div>
 {% endblock %}
 
@@ -117,6 +118,8 @@
 {% block footer %}
 
 {% endblock %}
+
+
 
 
 
