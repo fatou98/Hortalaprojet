@@ -22,7 +22,7 @@ class ClientRepository extends \Doctrine\ORM\EntityRepository
 
                     return $this->getEntityManager()
                         ->createQuery(
-                            'SELECT c  FROM HTLImmobilierBundle:Client c where id=1')
+                            'SELECT c  FROM HTLImmobilierBundle:Client c where c.id=1')
                         ->getResult();
 
                             }
