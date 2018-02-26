@@ -1,0 +1,128 @@
+
+
+
+{% extends "base1.html.twig" %}
+
+
+
+
+    {% block table%}
+
+<div class="container bg-warning divtable" >
+<h1>INFO BIEN</h1>
+<table class="table table-responsive table-condensed" id="listebientable">
+<thead>
+    <tr>
+        <th>nom</th>
+        <th>localite</th>
+        <th>typebien</th>
+        <th>description</th>
+        <th>etat</th>
+        <th>prix location</th>
+        
+    </tr>
+</thead>
+  {% for bien in biens %}
+  <tbody>
+    <tr>
+        <td>{{bien.nombien}}</td>
+        <td>{{bien.libellelocalite}}</td>
+        <td>{{bien.typebien}}</td>
+        <td>{{bien.description}}</td>
+        <td>{{bien.etat}}</td>
+      <td>{{bien.prixlocation}}</td>
+
+         
+
+    </tr>
+    </tbody>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}
+ {% block table2%}
+
+<div class="container bg-warning divtable" >
+<h1>INFORMATION CLIENT</h1>
+<table class="table table-responsive table-condensed" id="listebientable">
+<thead>
+    <tr>
+        <th>numero piece</th>
+        <th>nom complet</th>
+        <th>tel</th>
+        <th>adresse</th>
+        <th>email</th>
+        <th>password</th>
+        
+    </tr>
+</thead>
+  {% for client in clients %}
+  <tbody>
+    <tr>
+        <td>{{client.numpiece}}</td>
+        <td>{{client.nomComplet}}</td>
+        <td>{{client.tel}}</td>
+        <td>{{client.adresse}}</td>
+        <td>{{client.email}}</td>
+      <td>{{client.password}}</td>
+
+         
+
+    </tr>
+    </tbody>
+
+{% else %}
+
+  {% endfor %}
+</table>
+</div>
+{% endblock %}
+ {% block table3%}
+
+<div class="container bg-warning divtable" >
+<h1>INFO CONTRAT</h1>
+<table class="table table-responsive table-condensed" id="listebientable">
+<thead>
+    <tr>
+        <th>Caution</th>
+        <th>Mensualite</th>
+        <th>Total</th>
+        
+        
+    </tr>
+</thead>
+  {% for bien in biens %}
+  <tbody>
+    <tr>
+        <td>{{bien.prixlocation}}</td>
+        <td>{{bien.prixlocation}}</td>
+        <td>{{2 * bien.prixlocation}}</td>     
+
+    </tr>
+    </tbody>
+
+{% else %}
+
+  {% endfor %}
+
+</table>
+      <tr> Accepter vous les termes du contrat  <input type="checkbox" name="contrat" id="contrat"/></tr>
+
+</div>
+{% endblock %}
+
+
+
+
+
+{% block footer %}
+
+{% endblock %}
+
+
+
+
+
+
+
+

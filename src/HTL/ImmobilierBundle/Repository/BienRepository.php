@@ -38,9 +38,9 @@ class BienRepository extends \Doctrine\ORM\EntityRepository
         public function FindAllBienprix($prixlocation,$libellelocalite,$libelletype,$description)
             {   return $this->getEntityManager()->createQuery(
         'SELECT b, i FROM HTLImmobilierBundle:Bien b
-                left Join b.images i Join b.typebien t Join b.libellelocalite l WHERE b.etat = 1 AND b.description LIKE :description AND l.libellelocalite=:libellelocalite and t.libelletype=:libelletype and b.prixlocation BETWEEN (:prixlocation-30000) and (:prixlocation+30000)'
+                left Join b.images i Join b.typebien t Join b.libellelocalite l WHERE b.etat = 1 AND b.description LIKE :description AND l.libellelocalite=:libellelocalite'
                         )
-                    ->setParameters(array('prixlocation'=>$prixlocation,'libellelocalite'=>$libellelocalite,'libelletype'=>
+                        ->setParameters(array('prixlocation'=>$prixlocation,'libellelocalite'=>$libellelocalite,'libelletype'=>
                                             $libelletype,'description'=>'%'.$description.'%'
                                             ))
                         ->execute();
@@ -84,6 +84,14 @@ class BienRepository extends \Doctrine\ORM\EntityRepository
                         ->setParameter('prixlocation',$prixlocation)->execute();
 
                 }
+               public function FindBienId() {
+
+                    return $this->getEntityManager()
+                        ->createQuery(
+                            'SELECT b  FROM HTLImmobilierBundle:Bien b where b.id=1')
+                        ->getResult();
+
+                            }
 
 }
 
