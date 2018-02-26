@@ -41,7 +41,10 @@
 {% else %}
 <h1>ce bien n'existe pas</h1>
   {% endfor %}
-</table></div>
+</table>
+        <div class="text-center">{{ knp_pagination_render(biens) }}</div>
+
+</div>
 {% endblock %}
 
 

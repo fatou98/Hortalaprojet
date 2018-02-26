@@ -28,6 +28,9 @@ listereservation:
 details:
     path:     /front/bien/details
     defaults: { _controller: HTLImmobilierBundle:Front:detailsReservation }
+contrat:
+    path:     /front/bien/contrat
+    defaults: { _controller: HTLImmobilierBundle:Front:contratReservation }
 listetype:
     path:     /front/bien/typebien
     defaults: { _controller: HTLImmobilierBundle:Front:listTypebien }

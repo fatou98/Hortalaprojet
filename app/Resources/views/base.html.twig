@@ -89,14 +89,11 @@
 </div><div class="col-sm-12 rech" >
                                             <form class="form-inline" method="post">
                                               <label for="usr">Type:</label>
-
                                               <select name="libelletype"><option value="" selected="true">Choisir un type</option>
                                               {% for typebien in typebiens %}
                                               <option value="{{typebien.libelletype}}">{{typebien.libelletype}}</option>
                                                    {% endfor %}
                                                      </select>
-
-
                                               <label for="localite">Localite:</label>
                                               <select name="libellelocalite"><option value="" selected="true">Choisir une localite</option>
 
@@ -104,11 +101,9 @@
                                               <option value="{{localite.libellelocalite}}">{{localite.libellelocalite}}</option>
                                                        {% endfor %}
                                                                 </select>
-
                                               <label for="budget">Budget:</label>
-                                              <input type="number" class="form-control" name="prixlocation" min="30000">                                                  <a type="submit" class="btn btn-danger mb-2" id="plus" href="#">Plus d'option</a>
+                                              <input type="number" class="form-control" name="prixlocation" min="30000">      <a type="submit" class="btn btn-danger mb-2" id="plus" href="#">Plus d'option</a>
                                                   <button type="submit" class="btn btn-danger mb-2">Submit</button>
-
                                                   <div id="option">
                                               <label for="description">Description:</label>
                                               <input type="text" class="form-control" name="description"></div>

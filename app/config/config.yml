@@ -144,11 +144,10 @@ knp_paginator:
         pagination: 'KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig'   
         sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig' 
 fos_user:
-    db_driver : orm # dans le cas de doctrine
-    firewall_name : main
-    user_class : HTL\ImmobilierBundle\Entity\Client
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: HTLImmobilierBundle\Entity\User
     from_email:
         address: "mbathiefatou601@gmail.com"
         sender_name: "FOSUserBundle"
     
-

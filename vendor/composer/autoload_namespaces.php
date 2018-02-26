@@ -7,7 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
+    'Svg\\' => array($vendorDir . '/phenx/php-svg-lib/src'),
     'SensioLabs\\Security' => array($vendorDir . '/sensiolabs/security-checker'),
+    'Sabberworm\\CSS' => array($vendorDir . '/sabberworm/php-css-parser/lib'),
     'Less' => array($vendorDir . '/oyejorge/less.php/lib'),
     'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),

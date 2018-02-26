@@ -7,7 +7,6 @@
     {% block table%}
 
 <div class="container divtable" >
-<h1>LISTE DES Biens</h1>
 <table class="table table-condensed" id="listebientable">
 <thead>
     <style>
@@ -39,7 +38,8 @@
 {% else %}
 
   {% endfor %}
-</table>
+</table>        <div class="text-center">{{ knp_pagination_render(biens) }}</div>
+
 </div>
 {% endblock %}
 
