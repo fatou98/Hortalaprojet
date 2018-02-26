@@ -1,0 +1,66 @@
+
+{% extends "base1.html.twig" %}
+
+
+
+
+    {% block table%}
+
+<div class="container bg-warning divtable" >
+<h1>LISTE DES Biens</h1>
+<table class="table table-responsive table-condensed" id="">
+<thead>
+    <tr>
+        <th>nom client</th>
+        <th>adresse client</th>
+        <th>bien</th>
+        <th>adresse bien</th>
+        <th>type bien</th>
+                <th>prix</th>
+        <th>image</th>
+
+        
+    </tr>
+</thead>
+  {% for reservation in reservations %}
+  <tbody>
+    <tr>
+    
+        <td>{{reservation.client.nomComplet}}</td>
+        <td>{{reservation.client.adresse}}</td>
+        <td>{{reservation.bien.nombien}}</td>
+        <td>{{reservation.bien.libellelocalite}}</td>
+        <td>{{reservation.bien.typebien}}</td>
+        <td>{{reservation.bien.prixlocation}}</td>
+        <td><img class="card-img-top" src="{{ asset('image/') }}{{reservation.bien.images[0]}}" alt="Card image cap" width="50px">
+</td>
+         
+
+    </tr>
+    </tbody>
+       <td><a href="{{path('detailsReservation',{id:reservation.bien.id})}}" class="btn btn-default bg-primary">Valider</a></td>
+        <td><a href="{{path('detailsReservation',{id:reservation.bien.id})}}" class="btn btn-default bg-primary">Retour</a></td>
+        
+
+
+{% else %}
+
+  {% endfor %}
+</table>
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% block footer %}
+
+{% endblock %}
+
+
+
+
+
+
