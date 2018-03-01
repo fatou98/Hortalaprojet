@@ -37,24 +37,7 @@ listetype:
 listelocalite:
     path:     /front/bien/listelocalite
     defaults: { _controller: HTLImmobilierBundle:Front:listelocalite }
-list:
-    path:     /listbien
-    defaults: { _controller: HTLImmobilierBundle:Admin:listBien }
-
-edit:
-    path:     /edit/{id}
-    defaults: { _controller: HTLImmobilierBundle:Admin:edit }
-    requirements:
-        id: \d+
-
-supprimer:
-    path:     /supprimer{id}
-    defaults: { _controller: HTLImmobilierBundle:Admin:supprimer }
-    requirements:
-        id: \d+
-
-
 admin:
     path:     /admin
     defaults: { _controller: HTLImmobilierBundle:Admin:admin }
-   
+
