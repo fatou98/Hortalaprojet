@@ -937,3 +937,14 @@ c37ced,127.0.0.1,GET,http://localhost/testhortala/web/app_dev.php/front/bien/adm
 22fbd0,127.0.0.1,GET,http://localhost/testhortala/web/app_dev.php/front/bien/prix,1519633650,,200
 357720,127.0.0.1,GET,http://localhost/testhortala/web/app_dev.php/front/bien/prix,1519633706,,200
 14da6a,127.0.0.1,GET,http://localhost/testhortala/web/app_dev.php/front/bien/prix,1519633870,,200
+06349a,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/,1519745745,,200
+81985b,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519745753,,200
+ef79dd,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/?id=2&libelletype%5B__isInitialized__%5D=1,1519745758,,200
+f68a68,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/?id=2&libelletype%5B__isInitialized__%5D=1,1519745763,c2a4be,200
+c2a4be,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/?id=2&libelletype%5B__isInitialized__%5D=1,1519745763,,500
+0de919,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/?id=2&libelletype%5B__isInitialized__%5D=1,1519745808,c88196,200
+c88196,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/?id=2&libelletype%5B__isInitialized__%5D=1,1519745808,,500
+102eba,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/prix,1519891855,,200
+dc454b,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/?id=1&libelletype%5B__isInitialized__%5D=1,1519891904,,200
+0855d4,127.0.0.1,GET,http://localhost/hortala/web/app_dev.php/front/bien/?id=1&libelletype%5B__isInitialized__%5D=1,1519891912,148ef1,200
+148ef1,127.0.0.1,POST,http://localhost/hortala/web/app_dev.php/front/bien/?id=1&libelletype%5B__isInitialized__%5D=1,1519891912,,500
