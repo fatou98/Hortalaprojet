@@ -7,57 +7,17 @@
     use Symfony\Component\Form\Extension\Core\Type\SubmitType;
     use HTL\ImmobilierBundle\Entity\Bien;
     use HTL\ImmobilierBundle\Entity\Client;
-    use HTL\ImmobilierBundle\Entity\Contrat;
-        use HTL\ImmobilierBundle\Entity\Paiement;
-
     use HTL\ImmobilierBundle\Form\ClientType;
     use HTL\ImmobilierBundle\Entity\Typebien;
+    use HTL\ImmobilierBundle\Entity\Paiement;
+    use HTL\ImmobilierBundle\Entity\Contrat;
     use HTL\ImmobilierBundle\Entity\Reservation;
     use HTL\ImmobilierBundle\Entity\Localite;
     use Symfony\Component\HttpFoundation\Response;
     use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
     use Knp\Bundle\PaginatorBundle\Helper\Processeur;
-use Dompdf\Options;
-use Dompdf\Dompdf;
             class FrontController extends Controller
             {
-
-                        // On inclue  dompdf et  la classe qui permet de gérer ses options
-          public function convertoPdfAction() {
-            // On récupère l'objet à afficher (rien d'inconnu jusque là)
-            $objectsRepository = $this->getDoctrine()->getRepository('HTLImmobilierBundle:Termecontrat');
-            $object = $objectsRepository->findBy(array('id'=>1));        
-            // On crée une  instance pour définir les options de notre fichier pdf
-            $options = new Options();
-            // Pour simplifier l'affichage des images, on autorise dompdf à utiliser 
-            // des  url pour les nom de  fichier
-            $options->set('isRemoteEnabled', TRUE);
-            // On crée une instance de dompdf avec  les options définies
-            $dompdf = new Dompdf($options);
-            // On demande à Symfony de générer  le code html  correspondant à 
-            // notre template, et on stocke ce code dans une variable
-            $html = $this->renderView(
-              'HTLImmobilierBundle:Front:pdfTemplate.html.twig', 
-              array('objects' => $object)
-            );
-            // On envoie le code html  à notre instance de dompdf
-            $dompdf->loadHtml($html);        
-            // On demande à dompdf de générer le  pdf
-            $dompdf->render();
-            // On renvoie  le flux du fichier pdf dans une  Response pour l'utilisateur
-            return new Response ($dompdf->stream());
-          
-            //return $this->redirectToRoute('pdf');
-
-}
-public function afficherpdfAction(){
-   $objectsRepository = $this->getDoctrine()->getRepository('HTLImmobilierBundle:Termecontrat');
-            $object = $objectsRepository->findBy(array('id'=>1)); 
-return $this->render('HTLImmobilierBundle:Front:afficher.html.twig', array(
-                         'objects' => $object
-                    ));
-
-}
                 public function listelocaliteAction(){
                 $em = $this->getDoctrine()->getManager();
                 $localite= $em->getRepository(Localite::class)->FindAll();
@@ -113,64 +73,47 @@ return $this->render('HTLImmobilierBundle:Front:afficher.html.twig', array(
                     ));
                            
             }
-            /*  public function contratReservationAction(Request $request){
-                 if ($request->isMethod('GET')) {
-                    extract($_GET);
-                     $em = $this->getDoctrine()->getManager();
-                     $reservation= $em->getRepository(Reservation::class)->FindBy(array('id' => $id ));
-                      
-                }
-                  return $this->render('HTLImmobilierBundle:Front:contrat.html.twig', array(
-                                                  'reservations' => $reservation,
+            public function contratReservationAction(Request $request){
+                $reservation=new Reservation();
+    
+                $em = $this->getDoctrine()->getManager();
+                if($request->isMethod('POST')) {
+                   // if(isset($_POST['save'])){
+                    extract($_POST);
+                   $bien= $em->getRepository(Bien::class)->find($idbien);
+                    //$client= $em->getRepository(Client::class)->FindClientByid($idclient);
+                    //$clientreserve=$em->getRepository(Client::class)->find($client->getId());
+                    $contrat = new Contrat();
+                    $contrat->setDateContrat(new \DateTime('now'));
+                    $contrat->setCaution($caution);
+                    $contrat->setDuree("1ans");
+                    $contrat->setBien($bien);
+                    //$contrat->setClient($client);
+                    $em->persist($contrat);
+                    $em->flush();
+                    $paiement = new Paiement();
+                    $paiement->setMontant($montant);
+                    $paiement->setDatepaiement(new \DateTime('now'));
+                    $paiement->setPeriode(new \DateTime('now'));
+                    $em->persist($paiement);
+                    $em->flush();
+                   
+                    //}
+              }
+              if ($request->isMethod('GET')) {
+                extract($_GET);
+                 $reservation= $em->getRepository(Reservation::class)->FindBy(array('id' => $id,'etat'=>0 ));
+                 $reservation[0]->setEtat(true);
+                 $em->persist($reservation[0]);
+                 $em->flush();
+             }
+    
+                   return $this->render('HTLImmobilierBundle:Front:contrat.html.twig', array(
+                                                   'reservations' => $reservation,
+                     ));
+                            
+             }
 
-                    ));
-                           
-            }*/
-
-public function contratReservationAction(Request $request){
-            $reservation=new Reservation();
-
-            $em = $this->getDoctrine()->getManager();
-            if($request->isMethod('POST')) {
-               // if(isset($_POST['save'])){
-                extract($_POST);
-               $bien= $em->getRepository(Bien::class)->find($idbien);
-               $client= $em->getRepository(Client::class)->findBy(array('id'=> $idclient));
-              // $client= $em->getRepository(Client::class)->find($idclient->getId());
-            $clientreserve= $em->getRepository(Client::class)->find($client[0]->getId());
-                //$client=$em->getRepository(Reservation::class)->find($clientreserve->getId());
-                $contrat = new Contrat();
-                $contrat->setDateContrat(new \DateTime('now'));
-                $contrat->setCaution($caution);
-                $contrat->setDuree("1ans");
-                $contrat->setBien($bien);
-                $contrat->setClient($clientreserve);
-                $em->persist($contrat);
-                $em->flush();
-                $paiement = new Paiement();
-                $paiement->setMontant($montant);
-                $paiement->setDatepaiement(new \DateTime());
-                $paiement->setPeriode(new \DateTime('now'));
-                $em->persist($paiement);
-                $em->flush();
-               
-                //}
-          }
-          if ($request->isMethod('GET')) {
-            extract($_GET);
-             $reservation= $em->getRepository(Reservation::class)->FindBy(array('id' => $id,'etat'=>0 ));
-             $reservation[0]->setEtat(true);
-             $em->persist($reservation[0]);
-             $em->flush();
-     
-         }
-    return $this->render('HTLImmobilierBundle:Front:contrat.html.twig', array(
-                                               'reservations' => $reservation,
-                 ));
-
-              
-         //return $this->redirectToRoute('pdf');
-                  }      
 
             /**
              * @Route("/front/bien/reserver")
@@ -179,7 +122,7 @@ public function contratReservationAction(Request $request){
             {
                 $em = $this->getDoctrine()->getManager();
             if($request->isMethod('POST')) {
-                if(isset($_POST['connexion'])){
+                if($_POST['form']='connexion'){
                     extract($_POST);
                     $client= $em->getRepository(Client::class)->FindClient($email,$password);
                     $clientreserve=$em->getRepository(Client::class)->find($client[0]->getId());
@@ -197,8 +140,7 @@ public function contratReservationAction(Request $request){
                         'biens' => $bien
                     ));
                         }
-              else if (isset($_POST['inscription'])){
-                  extract($_POST);
+              else if ($_POST['form']='inscription'){
                     $client = new Client();
                     $client->setNumpiece($numpiece);
                     $client->setNomComplet($nomComplet);
@@ -245,24 +187,7 @@ public function contratReservationAction(Request $request){
                     ));
 
                         }
-                 if ($request->isMethod('GET') ) {
-                     if (isset($_GET['valider'])){
-                    extract($_GET);
-                 $reservation = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('HTLImmobilierBundle:Reservation')
-                        ->findBy(array('id'=>$id));
-                        //var_dump($user);
-                        $entitymaneger = $this->getDoctrine()->getManager();
-                        $etat=$reservation->getEtat();
-                        $reservation->setEtat(1);
-        
-                        $entitymaneger->flush();
-                 }
-                                 
-                            
                     }
-            }
                 public function listeBienAction(){
                             $em = $this->getDoctrine()->getManager();
                             $bien= $em->getRepository(Bien::class)
