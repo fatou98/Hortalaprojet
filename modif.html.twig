@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+{% block title %}Modification{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/contrat.css') }}">
+{% endblock %}
+{% block aside %}
+
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <form class="form-horizontal" action="{{ path('localite_update') }}" method="POST" >
+                    <fieldset>
+                        <div id="legend">
+                            <legend class="">Modifier</legend>
+                        </div>
+                        <div class="control-group">
+                            <!-- Username -->
+                            <label class="control-label"  for="username">Localite</label>
+                            <div class="controls">
+                                <input type="text" id="modifier" name="libelle_localite" placeholder="Modifier" class="input-xlarge" value="{{ localite.libellelocalite }}">
+                                <input type="hidden" name="id_localite" value="{{ localite.id }}">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <!-- Button -->
+                            <div class="controls">
+                                <button class="btn btn-success">Envoyer</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+{% endblock %}

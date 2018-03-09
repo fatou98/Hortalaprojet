@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Localite:index{% endblock %}
+
+{% block aside %}
+    {% if deleted is defined %}
+        <div class="alert alert-success" role="alert">
+           Localité supprimée avec succes
+        </div>
+    {% endif %}
+    {% if modified is defined %}
+<div class="alert alert-success" role="alert">
+    Localité modifiée avec succes
+</div>
+    {% endif %}
+    {% if notfound is defined %}
+    <div class="alert alert-danger" role="alert">
+        Localité non trouvée !
+    </div>
+        {% endif %}
+    <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Localite</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for localite in localites   %}
+
+                <tr>
+                <td>{{ localite.libellelocalite }}</td>
+                <td><a href="{{ path('localite_edit', {'id_localite':localite.id}) }}" class="btn btn-success">Modifier</a>  <a href="{{ path('localite_delete', {'id_localite':localite.id}) }}" class="btn btn-danger">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+{% endblock %}
