@@ -1,0 +1,76 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/proprio.css') }}">
+{% endblock %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<section class="register-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 register-sec">
+                <h2 class="text-center">ENREGISTREMENT PROPRIETAIRE</h2>
+                <form class="register-form" action="saveproprio" method="post">
+                    {% if saved is defined %}
+                        <div class="alert alert-success" role="alert">
+                            Proprietaire enregistré avec succès.
+                        </div>
+                    {% endif %}
+                    <div class="form-group">
+                        <label for="name" class="text-uppercase">Nom Complet</label>
+                        <input type="name" name="nomcomplet" class="form-control" placeholder="nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="Address" class="text-uppercase">Adresse</label>
+                        <input type="address" name="adresse" class="form-control" placeholder="adresse">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail" class="text-uppercase">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="numpiece" class="text-uppercase">Numero Piece</label>
+                        <input type="number" name="numeropiece" class="form-control" placeholder="numero piece">
+                    </div>
+                    <div class="form-group">
+                        <label for="tel" class="text-uppercase">TEL</label>
+                        <input type="number" name="tel" class="form-control" placeholder="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="codebank" class="text-uppercase">Code Banque</label>
+                        <input type="number" name="codebanque" class="form-control" placeholder="code banque">
+                    </div>
+
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-success btn-register float-right">Enregistrer</button>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="col-md-8 banner-sec">
+                <div id="mainDiv">
+                    <div id="boxDiv">
+                        <div id="front"><br>QUALITE</div>
+                        <div id="back"><br>EFFICACITE</div>
+                        <div id="left"><br>FIABILITE</div>
+                        <div id="right"><br>HORTALA</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% block javascripts %}
+    <script src="{{ asset('js/ajout.js') }}"></script>
+
+    <script>
+{% endblock %}
